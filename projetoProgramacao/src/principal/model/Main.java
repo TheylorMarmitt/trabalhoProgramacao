@@ -1,4 +1,4 @@
-package principal;
+package principal.model;
 	
 import javafx.application.Application;
 import javafx.stage.Stage;

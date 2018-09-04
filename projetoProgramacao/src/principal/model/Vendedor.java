@@ -1,8 +1,8 @@
-package principal;
+package principal.model;
 
 import java.time.LocalDate;
 
-public class Cliente {
+public class Vendedor {
 
 	private int codigo;
 	private String nome;
@@ -10,16 +10,10 @@ public class Cliente {
 	private String telefone;
 	private String cpf;
 	private String email;
-	private LocalDate dataDeCadastro;
-	private String cnh;
 	
+	public Vendedor() {
 	
-	
-	public Cliente(){
-		
-		
 	}
-	
 	
 	public int getCodigo() {
 		return codigo;
@@ -57,20 +51,7 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public LocalDate getDataDeCadastro() {
-		return dataDeCadastro;
-	}
-	public void setDataDeCadastro(LocalDate dataDeCadastro) {
-		this.dataDeCadastro = dataDeCadastro;
-	}
-	public String getCnh() {
-		return cnh;
-	}
-	public void setCnh(String cnh) {
-		this.cnh = cnh;
-	}
-	public Cliente(int codigo, String nome, LocalDate dataNascimento, String telefone, String cpf, String email,
-			LocalDate dataDeCadastro, String cnh) {
+	public Vendedor(int codigo, String nome, LocalDate dataNascimento, String telefone, String cpf, String email) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
@@ -78,21 +59,12 @@ public class Cliente {
 		this.telefone = telefone;
 		this.cpf = cpf;
 		this.email = email;
-		this.dataDeCadastro = dataDeCadastro;
-		this.cnh = cnh;
 	}
-
-
 	@Override
 	public String toString() {
-		return "Cliente [codigo=" + codigo + ", nome=" + nome + ", dataNascimento=" + dataNascimento + ", telefone="
-				+ telefone + ", cpf=" + cpf + ", email=" + email + ", dataDeCadastro=" + dataDeCadastro + ", cnh=" + cnh
-				+ "]";
+		return "Vendedor [codigo=" + codigo + ", nome=" + nome + ", dataNascimento=" + dataNascimento + ", telefone="
+				+ telefone + ", cpf=" + cpf + ", email=" + email + "]";
 	}
-	
-	
-	
-	
-	
+
 	
 }

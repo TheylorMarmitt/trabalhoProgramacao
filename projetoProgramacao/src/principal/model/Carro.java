@@ -1,4 +1,4 @@
-package principal;
+package principal.model;
 
 public class Carro {
 	private int codigo;
