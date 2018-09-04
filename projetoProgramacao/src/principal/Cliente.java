@@ -81,6 +81,14 @@ public class Cliente {
 		this.dataDeCadastro = dataDeCadastro;
 		this.cnh = cnh;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Cliente [codigo=" + codigo + ", nome=" + nome + ", dataNascimento=" + dataNascimento + ", telefone="
+				+ telefone + ", cpf=" + cpf + ", email=" + email + ", dataDeCadastro=" + dataDeCadastro + ", cnh=" + cnh
+				+ "]";
+	}
 	
 	
 	
