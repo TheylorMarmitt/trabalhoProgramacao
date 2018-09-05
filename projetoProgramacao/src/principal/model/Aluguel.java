@@ -101,8 +101,4 @@ public class Aluguel {
 			return "Aluguel [codigo=" + codigo + ", dataAluguel=" + dataAluguel + ", dataDevolucao=" + dataDevolucao
 					+ "]";
 		}
-		
-
-
-
 }
