@@ -11,6 +11,7 @@ public class Aluguel {
 	private Filial filial = new Filial();
 	private Vendedor vendedor = new Vendedor();
 	private TipoAluguel tipoAluguel = new TipoAluguel();
+	private Cliente cliente;
 
 	public boolean confirmaAluguel() {
 		return false;
@@ -80,13 +81,24 @@ public class Aluguel {
 		this.dataAluguel = dataAluguel;
 	}
 
+	public Aluguel(int codigo, LocalDate dataAluguel, Double quilometrosSaida, Carro carro, Filial filial,
+			Vendedor vendedor, TipoAluguel tipoAluguel, Cliente cliente) {
+		super();
+		this.codigo = codigo;
+		this.dataAluguel = dataAluguel;
+		this.quilometrosSaida = quilometrosSaida;
+		this.carro = carro;
+		this.filial = filial;
+		this.vendedor = vendedor;
+		this.tipoAluguel = tipoAluguel;
+		this.cliente = cliente;
+	}
+
 	@Override
 	public String toString() {
 		return "Aluguel [codigo=" + codigo + ", dataAluguel=" + dataAluguel + ", quilometrosSaida=" + quilometrosSaida
 				+ ", carro=" + carro + ", filial=" + filial + ", vendedor=" + vendedor + ", tipoAluguel=" + tipoAluguel
-				+ "]";
+				+ ", cliente=" + cliente + "]";
 	}
-
-
 
 }
