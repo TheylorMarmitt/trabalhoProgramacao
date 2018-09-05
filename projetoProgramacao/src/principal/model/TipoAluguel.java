@@ -2,23 +2,17 @@ package principal.model;
 
 public class TipoAluguel {
 
+	private Integer codigo;
 	private String descricao;
 	private Double valor;
 	private Double taxa;
 
-	public TipoAluguel() {
-		super();
+	public Integer getCodigo() {
+		return codigo;
 	}
 
-	public TipoAluguel(String descricao, Double valor, Double taxa) {
-		super();
-		this.descricao = descricao;
-		this.valor = valor;
-		this.taxa = taxa;
-	}
-	
-	public Double calculaValor() {
-		return null;
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getDescricao() {
@@ -43,6 +37,25 @@ public class TipoAluguel {
 
 	public void setTaxa(Double taxa) {
 		this.taxa = taxa;
+	}
+
+	public TipoAluguel() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public TipoAluguel(Integer codigo, String descricao, Double valor, Double taxa) {
+		super();
+		this.codigo = codigo;
+		this.descricao = descricao;
+		this.valor = valor;
+		this.taxa = taxa;
+	}
+
+	@Override
+	public String toString() {
+		return "TipoAluguel [codigo=" + codigo + ", descricao=" + descricao + ", valor=" + valor + ", taxa=" + taxa
+				+ "]";
 	}
 
 }

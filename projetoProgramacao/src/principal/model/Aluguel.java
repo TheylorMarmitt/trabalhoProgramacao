@@ -9,7 +9,7 @@ public class Aluguel {
 	private Double quilometrosSaida;
 	private Carro carro = new Carro();
 	private Filial filial = new Filial();
-	private Vendedor vendedor = new Vendedor();
+	private Funcionario vendedor = new Funcionario();
 	private TipoAluguel tipoAluguel = new TipoAluguel();
 	private Cliente cliente;
 
@@ -49,11 +49,11 @@ public class Aluguel {
 		this.filial = filial;
 	}
 
-	public Vendedor getVendedor() {
+	public Funcionario getVendedor() {
 		return vendedor;
 	}
 
-	public void setVendedor(Vendedor vendedor) {
+	public void setVendedor(Funcionario vendedor) {
 		this.vendedor = vendedor;
 	}
 
@@ -82,7 +82,7 @@ public class Aluguel {
 	}
 
 	public Aluguel(int codigo, LocalDate dataAluguel, Double quilometrosSaida, Carro carro, Filial filial,
-			Vendedor vendedor, TipoAluguel tipoAluguel, Cliente cliente) {
+			Funcionario vendedor, TipoAluguel tipoAluguel, Cliente cliente) {
 		super();
 		this.codigo = codigo;
 		this.dataAluguel = dataAluguel;
