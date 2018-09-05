@@ -6,8 +6,6 @@ public class Aluguel {
 
 	private int codigo;
 	private LocalDate dataAluguel;
-	private LocalDate dataDevolucao;
-	private Double quilometrosEntrada;
 	private Double quilometrosSaida;
 	private Carro carro = new Carro();
 	private Filial filial = new Filial();
@@ -24,14 +22,6 @@ public class Aluguel {
 
 	public Aluguel() {
 
-	}
-
-	public Double getQuilometrosEntrada() {
-		return quilometrosEntrada;
-	}
-
-	public void setQuilometrosEntrada(Double quilometrosEntrada) {
-		this.quilometrosEntrada = quilometrosEntrada;
 	}
 
 	public Double getQuilometrosSaida() {
@@ -90,24 +80,13 @@ public class Aluguel {
 		this.dataAluguel = dataAluguel;
 	}
 
-	public LocalDate getDataDevolucao() {
-		return dataDevolucao;
-	}
-
-	public void setDataDevolucao(LocalDate dataDevolucao) {
-		this.dataDevolucao = dataDevolucao;
-	}
-
-	public Aluguel(int codigo, LocalDate dataAluguel, LocalDate dataDevolucao) {
-		super();
-		this.codigo = codigo;
-		this.dataAluguel = dataAluguel;
-		this.dataDevolucao = dataDevolucao;
-	}
-
 	@Override
 	public String toString() {
-		return "Aluguel [codigo=" + codigo + ", dataAluguel=" + dataAluguel + ", dataDevolucao=" + dataDevolucao + "]";
+		return "Aluguel [codigo=" + codigo + ", dataAluguel=" + dataAluguel + ", quilometrosSaida=" + quilometrosSaida
+				+ ", carro=" + carro + ", filial=" + filial + ", vendedor=" + vendedor + ", tipoAluguel=" + tipoAluguel
+				+ "]";
 	}
+
+
 
 }
