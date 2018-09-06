@@ -22,7 +22,23 @@ public class Cliente extends Pessoa {
 	 * @return idade inteiro
 	 */
 	public Integer idade() {
-		return null;
+		Integer anoNasc = this.getDataNascimento().getYear();
+		Integer mesNasc = this.getDataNascimento().getMonthValue();
+		Integer diaNasc = this.getDataNascimento().getDayOfMonth();
+		Integer anoAgora = LocalDate.now().getYear();
+		Integer mesAgora = LocalDate.now().getMonthValue();
+		Integer diaAgora = LocalDate.now().getYear();
+		if(mesNasc > mesAgora) {
+			return anoAgora - anoNasc;
+		}else if(mesNasc == mesAgora) {
+			if(diaNasc < diaAgora) {
+				return (anoAgora+1) - anoNasc;
+			}else {
+				return anoAgora - anoNasc;
+			}
+		}
+		return (anoAgora+1) - anoNasc;
+		
 	}
 
 	public Cliente() {

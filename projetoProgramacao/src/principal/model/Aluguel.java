@@ -4,100 +4,110 @@ import java.time.LocalDate;
 
 public class Aluguel {
 
-		private int codigo;
-		private LocalDate dataAluguel;
-		private LocalDate dataDevolucao;
-		private Double quilometrosEntrada;
-		private Double quilometrosSaida;
-		
-		private Carro carro = new Carro();
-		private Filial filial = new Filial();
-		private Funcionario funcionario = new Funcionario();
-		private TipoAluguel tipoAluguel = new TipoAluguel();
-		 
-		public boolean confirmaAluguel(){
-			return false;
-		}
-		public Double calculaQuilometros() {
-			return null;
-		}
-		
-		
-		
-		public Aluguel() {
-		
-		}
-		
-		public Double getQuilometrosEntrada() {
-			return quilometrosEntrada;
-		}
-		public void setQuilometrosEntrada(Double quilometrosEntrada) {
-			this.quilometrosEntrada = quilometrosEntrada;
-		}
-		public Double getQuilometrosSaida() {
-			return quilometrosSaida;
-		}
-		public void setQuilometrosSaida(Double quilometrosSaida) {
-			this.quilometrosSaida = quilometrosSaida;
-		}
-		public Carro getCarro() {
-			return carro;
-		}
-		public void setCarro(Carro carro) {
-			this.carro = carro;
-		}
+	private Integer codigo;
+	private LocalDate dataAluguel;
+	private Double quilometrosSaida;
+	private Carro carro = new Carro();
+	private Filial filial = new Filial();
+	private Funcionario funcionario = new Funcionario();
+	private TipoAluguel tipoAluguel = new TipoAluguel();
+	private Cliente cliente = new Cliente();
 
-		public Filial getFilial() {
-			return filial;
-		}
+	public boolean confirmaAluguel() {
+		return false;
+	}
 
-		public void setFilial(Filial filial) {
-			this.filial = filial;
-		}
+	public Double calculaQuilometros(Devolucao dev) {
+		Double km = dev.getQuilometroChegada() - this.quilometrosSaida;
+		return km;
+	}
 
-		public Funcionario getFuncionario() {
-			return funcionario;
-		}
+	public Aluguel() {
 
-		public void setfuncionario(Funcionario funcionario) {
-			this.funcionario = funcionario;
-		}
+	}
 
-		public TipoAluguel getTipoAluguel() {
-			return tipoAluguel;
-		}
+	public Aluguel(Integer codigo, LocalDate dataAluguel, Double quilometrosSaida, Carro carro, Filial filial,
+			Funcionario funcionario, TipoAluguel tipoAluguel, Cliente cliente) {
+		super();
+		this.codigo = codigo;
+		this.dataAluguel = dataAluguel;
+		this.quilometrosSaida = quilometrosSaida;
+		this.carro = carro;
+		this.filial = filial;
+		this.funcionario = funcionario;
+		this.tipoAluguel = tipoAluguel;
+		this.cliente = cliente;
+	}
 
-		public void setTipoAluguel(TipoAluguel tipoAluguel) {
-			this.tipoAluguel = tipoAluguel;
-		}
+	public Integer getCodigo() {
+		return codigo;
+	}
 
-		public int getCodigo() {
-			return codigo;
-		}
-		public void setCodigo(int codigo) {
-			this.codigo = codigo;
-		}
-		public LocalDate getDataAluguel() {
-			return dataAluguel;
-		}
-		public void setDataAluguel(LocalDate dataAluguel) {
-			this.dataAluguel = dataAluguel;
-		}
-		public LocalDate getDataDevolucao() {
-			return dataDevolucao;
-		}
-		public void setDataDevolucao(LocalDate dataDevolucao) {
-			this.dataDevolucao = dataDevolucao;
-		}
-		public Aluguel(int codigo, LocalDate dataAluguel, LocalDate dataDevolucao) {
-			super();
-			this.codigo = codigo;
-			this.dataAluguel = dataAluguel;
-			this.dataDevolucao = dataDevolucao;
-		}
-		@Override
-		public String toString() {
-			return "Aluguel [codigo=" + codigo + ", dataAluguel=" + dataAluguel + ", dataDevolucao=" + dataDevolucao
-					+ "]";
-		}
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
+	}
+
+	public LocalDate getDataAluguel() {
+		return dataAluguel;
+	}
+
+	public void setDataAluguel(LocalDate dataAluguel) {
+		this.dataAluguel = dataAluguel;
+	}
+
+	public Double getQuilometrosSaida() {
+		return quilometrosSaida;
+	}
+
+	public void setQuilometrosSaida(Double quilometrosSaida) {
+		this.quilometrosSaida = quilometrosSaida;
+	}
+
+	public Carro getCarro() {
+		return carro;
+	}
+
+	public void setCarro(Carro carro) {
+		this.carro = carro;
+	}
+
+	public Filial getFilial() {
+		return filial;
+	}
+
+	public void setFilial(Filial filial) {
+		this.filial = filial;
+	}
+
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
+
+	public TipoAluguel getTipoAluguel() {
+		return tipoAluguel;
+	}
+
+	public void setTipoAluguel(TipoAluguel tipoAluguel) {
+		this.tipoAluguel = tipoAluguel;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	@Override
+	public String toString() {
+		return "Aluguel [codigo=" + codigo + ", dataAluguel=" + dataAluguel + ", quilometrosSaida=" + quilometrosSaida
+				+ ", carro=" + carro + ", filial=" + filial + ", funcionario=" + funcionario + ", tipoAluguel="
+				+ tipoAluguel + ", cliente=" + cliente + "]";
+	}
+
 }

@@ -42,8 +42,6 @@ public class Filial {
 		this.uf = uf;
 	}
 
-
-
 	public Filial(int codigo, String nome, String cidade, String uf) {
 		super();
 		this.codigo = codigo;
@@ -57,7 +55,5 @@ public class Filial {
 	public String toString() {
 		return "Filial [codigo=" + codigo + ", nome=" + nome + ", cidade=" + cidade + ", uf=" + uf + "]";
 	}
-
-
 
 }
