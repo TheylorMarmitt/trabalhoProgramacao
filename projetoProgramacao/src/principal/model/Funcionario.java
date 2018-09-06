@@ -2,6 +2,7 @@ package principal.model;
 
 public class Funcionario extends Pessoa {
 
+	private Integer codigo;
 	private String senha;
 	private Filial filial;
 	private Double salario;
@@ -13,14 +14,25 @@ public class Funcionario extends Pessoa {
 	public Double comissao() {
 		return null;
 	}
+
 	public Funcionario() {
 
 	}
-	public Funcionario(String senha, Filial filial, Double salario) {
+
+	public Funcionario(Integer codigo, String senha, Filial filial, Double salario) {
 		super();
+		this.codigo = codigo;
 		this.senha = senha;
 		this.filial = filial;
 		this.salario = salario;
+	}
+
+	public Integer getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getSenha() {
@@ -49,7 +61,8 @@ public class Funcionario extends Pessoa {
 
 	@Override
 	public String toString() {
-		return "Funcionario [senha=" + senha + ", filial=" + filial + ", salario=" + salario + "]";
+		return "Funcionario [codigo=" + codigo + ", senha=" + senha + ", filial=" + filial + ", salario=" + salario
+				+ "]";
 	}
 
 }
