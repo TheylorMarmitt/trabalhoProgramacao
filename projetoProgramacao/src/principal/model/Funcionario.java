@@ -2,7 +2,7 @@ package principal.model;
 
 import java.time.LocalDate;
 
-public class Cliente {
+public class Funcionario {
 
 	private Integer codigo;
 	private String nome;
@@ -11,11 +11,16 @@ public class Cliente {
 	private String telefone;
 	private String cpf;
 	private String email;
-	private LocalDate dataDeCadastro;
-	private String cnh;
+	private String senha;
+	private Filial filial;
+	private Double salario;
 
-	public Cliente() {
-
+	/**
+	 * 
+	 * @return Double com acrescimo em comissao
+	 */
+	public Double comissao() {
+		return null;
 	}
 
 	public Integer getCodigo() {
@@ -74,24 +79,37 @@ public class Cliente {
 		this.email = email;
 	}
 
-	public LocalDate getDataDeCadastro() {
-		return dataDeCadastro;
+	public String getSenha() {
+		return senha;
 	}
 
-	public void setDataDeCadastro(LocalDate dataDeCadastro) {
-		this.dataDeCadastro = dataDeCadastro;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
-	public String getCnh() {
-		return cnh;
+	public Filial getFilial() {
+		return filial;
 	}
 
-	public void setCnh(String cnh) {
-		this.cnh = cnh;
+	public void setFilial(Filial filial) {
+		this.filial = filial;
 	}
 
-	public Cliente(Integer codigo, String nome, String sobrenome, LocalDate dataNascimento, String telefone, String cpf,
-			String email, LocalDate dataDeCadastro, String cnh) {
+	public Double getSalario() {
+		return salario;
+	}
+
+	public void setSalario(Double salario) {
+		this.salario = salario;
+	}
+
+	public Funcionario() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Funcionario(Integer codigo, String nome, String sobrenome, LocalDate dataNascimento, String telefone,
+			String cpf, String email, String senha, Filial filial, Double salario) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
@@ -100,15 +118,16 @@ public class Cliente {
 		this.telefone = telefone;
 		this.cpf = cpf;
 		this.email = email;
-		this.dataDeCadastro = dataDeCadastro;
-		this.cnh = cnh;
+		this.senha = senha;
+		this.filial = filial;
+		this.salario = salario;
 	}
 
 	@Override
 	public String toString() {
-		return "Cliente [codigo=" + codigo + ", nome=" + nome + ", sobrenome=" + sobrenome + ", dataNascimento="
-				+ dataNascimento + ", telefone=" + telefone + ", cpf=" + cpf + ", email=" + email + ", dataDeCadastro="
-				+ dataDeCadastro + ", cnh=" + cnh + "]";
+		return "Funcionario [codigo=" + codigo + ", nome=" + nome + ", sobrenome=" + sobrenome + ", dataNascimento="
+				+ dataNascimento + ", telefone=" + telefone + ", cpf=" + cpf + ", email=" + email + ", senha=" + senha
+				+ ", filial=" + filial + ", salario=" + salario + "]";
 	}
 
 }

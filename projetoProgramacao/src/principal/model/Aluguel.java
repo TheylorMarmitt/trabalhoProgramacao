@@ -12,7 +12,7 @@ public class Aluguel {
 		
 		private Carro carro = new Carro();
 		private Filial filial = new Filial();
-		private Vendedor vendedor = new Vendedor();
+		private Funcionario funcionario = new Funcionario();
 		private TipoAluguel tipoAluguel = new TipoAluguel();
 		 
 		public boolean confirmaAluguel(){
@@ -43,7 +43,6 @@ public class Aluguel {
 		public Carro getCarro() {
 			return carro;
 		}
-
 		public void setCarro(Carro carro) {
 			this.carro = carro;
 		}
@@ -56,12 +55,12 @@ public class Aluguel {
 			this.filial = filial;
 		}
 
-		public Vendedor getVendedor() {
-			return vendedor;
+		public Funcionario getFuncionario() {
+			return funcionario;
 		}
 
-		public void setVendedor(Vendedor vendedor) {
-			this.vendedor = vendedor;
+		public void setfuncionario(Funcionario funcionario) {
+			this.funcionario = funcionario;
 		}
 
 		public TipoAluguel getTipoAluguel() {
