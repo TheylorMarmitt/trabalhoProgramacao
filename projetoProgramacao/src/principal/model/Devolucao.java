@@ -10,6 +10,11 @@ public class Devolucao {
 	private Aluguel aluguel;
 	private Double valorTotal;
 	private TipoPagamento tipoPagamento;
+	
+	public Double calculaQuilometros() {
+		Double km = this.quilometroChegada - this.aluguel.getQuilometrosSaida();
+		return km;
+	}
 
 	public void disponibilizaCarro() {
 		this.aluguel.getCarro().setDisponivel(true);

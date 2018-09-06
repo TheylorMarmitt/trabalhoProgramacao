@@ -17,10 +17,6 @@ public class Aluguel {
 		return false;
 	}
 
-	public Double calculaQuilometros(Devolucao dev) {
-		Double km = dev.getQuilometroChegada() - this.quilometrosSaida;
-		return km;
-	}
 
 	public Aluguel() {
 
