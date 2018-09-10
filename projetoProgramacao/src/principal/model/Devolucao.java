@@ -16,6 +16,15 @@ public class Devolucao {
 		return km;
 	}
 
+	public void calculaValor() {
+		Double tipo = this.aluguel.getTipoAluguel().getValor() * this.aluguel.getTipoAluguel().getTaxa();
+		if(this.aluguel.getTipoAluguel().getDescricao().equals("quilometros")) {
+			this.valorTotal = calculaQuilometros() * tipo;
+		}else {
+			
+		}
+	}
+	
 	public void disponibilizaCarro() {
 		this.aluguel.getCarro().setDisponivel(true);
 	}

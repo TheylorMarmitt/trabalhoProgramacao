@@ -7,11 +7,11 @@ public class Aluguel {
 	private Integer codigo;
 	private LocalDate dataAluguel;
 	private Double quilometrosSaida;
-	private Carro carro = new Carro();
-	private Filial filial = new Filial();
-	private Funcionario funcionario = new Funcionario();
-	private TipoAluguel tipoAluguel = new TipoAluguel();
-	private Cliente cliente = new Cliente();
+	private Carro carro;
+	private Filial filial;
+	private Funcionario funcionario;
+	private TipoAluguel tipoAluguel;
+	private Cliente cliente;
 
 	public boolean confirmaAluguel() {
 		if(this.carro.isDisponivel()) {
@@ -24,7 +24,7 @@ public class Aluguel {
 
 
 	public Aluguel() {
-
+		
 	}
 
 	public Aluguel(Integer codigo, LocalDate dataAluguel, Double quilometrosSaida, Carro carro, Filial filial,

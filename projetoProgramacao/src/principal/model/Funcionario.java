@@ -7,14 +7,6 @@ public class Funcionario extends Pessoa {
 	private Filial filial;
 	private Double salario;
 
-	/**
-	 * 
-	 * @return Double com acrescimo em comissao
-	 */
-	public Double comissao() {
-		return null;
-	}
-
 	public Funcionario() {
 
 	}
