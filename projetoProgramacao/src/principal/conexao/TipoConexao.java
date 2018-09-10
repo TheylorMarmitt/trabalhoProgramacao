@@ -2,7 +2,7 @@ package principal.conexao;
 
 public enum TipoConexao {
 
-	TESTES(new PropriedadesConexao("/Users/TheylorMarmitt/Desktop/TADS/Aulas/ProgApli2/teste.properties")), 
+	TESTES(new PropriedadesConexao("/Users/TheylorMarmitt/Desktop/TADS/Aulas/ProgApli2/")), 
 	DESENVOLVIMENTO(new PropriedadesConexao("caminho")), 
 	CLIENTE(new PropriedadesConexao("caminho"));
 	
