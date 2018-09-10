@@ -1,6 +1,7 @@
 package principal.model;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Devolucao {
 
@@ -11,18 +12,23 @@ public class Devolucao {
 	private Double valorTotal;
 	private TipoPagamento tipoPagamento;
 	
+	
+	/**
+	 * 
+	 * @return quilometros percorridos durante o aluguel do veiculo
+	 */
 	public Double calculaQuilometros() {
 		Double km = this.quilometroChegada - this.aluguel.getQuilometrosSaida();
 		return km;
 	}
 
+	/**
+	 * (dias * taxa) + (valor * km/1000) 
+	 * atualiza valorTotal
+	 */
 	public void calculaValor() {
-		Double tipo = this.aluguel.getTipoAluguel().getValor() * this.aluguel.getTipoAluguel().getTaxa();
-		if(this.aluguel.getTipoAluguel().getDescricao().equals("quilometros")) {
-			this.valorTotal = calculaQuilometros() * tipo;
-		}else {
-			
-		}
+		long dias = ChronoUnit.DAYS.between(this.aluguel.getDataAluguel(), this.dataChegada);
+		this.valorTotal =(dias * this.aluguel.getTipoAluguel().getTaxa()) + (this.aluguel.getTipoAluguel().getValor() * calculaQuilometros()/1000);
 	}
 	
 	public void disponibilizaCarro() {
