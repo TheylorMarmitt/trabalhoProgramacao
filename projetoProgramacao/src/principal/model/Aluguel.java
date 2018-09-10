@@ -14,7 +14,12 @@ public class Aluguel {
 	private Cliente cliente = new Cliente();
 
 	public boolean confirmaAluguel() {
-		return false;
+		if(this.carro.isDisponivel()) {
+			this.carro.setDisponivel(false);
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 
