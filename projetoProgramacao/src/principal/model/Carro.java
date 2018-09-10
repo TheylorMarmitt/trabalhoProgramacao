@@ -11,7 +11,6 @@ public class Carro {
 	private LocalDate ano;
 	private String placa;
 	private boolean disponivel;
-	private Filial filial;
 
 	public Carro() {
 
@@ -81,16 +80,8 @@ public class Carro {
 		this.disponivel = disponivel;
 	}
 
-	public Filial getFilial() {
-		return filial;
-	}
-
-	public void setFilial(Filial filial) {
-		this.filial = filial;
-	}
-
 	public Carro(Integer codigo, String marca, String modelo, Double valor, String cor, LocalDate ano, String placa,
-			boolean disponivel, Filial filial) {
+			boolean disponivel) {
 		super();
 		this.codigo = codigo;
 		this.marca = marca;
@@ -100,13 +91,12 @@ public class Carro {
 		this.ano = ano;
 		this.placa = placa;
 		this.disponivel = disponivel;
-		this.filial = filial;
 	}
 
 	@Override
 	public String toString() {
 		return "Carro [codigo=" + codigo + ", marca=" + marca + ", modelo=" + modelo + ", valor=" + valor + ", cor="
-				+ cor + ", ano=" + ano + ", placa=" + placa + ", disponivel=" + disponivel + ", filial=" + filial + "]";
+				+ cor + ", ano=" + ano + ", placa=" + placa + ", disponivel=" + disponivel + "]";
 	}
 
 }

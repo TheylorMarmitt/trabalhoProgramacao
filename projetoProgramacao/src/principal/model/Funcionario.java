@@ -4,18 +4,16 @@ public class Funcionario extends Pessoa {
 
 	private Integer codigo;
 	private String senha;
-	private Filial filial;
 	private Double salario;
 
 	public Funcionario() {
 
 	}
 
-	public Funcionario(Integer codigo, String senha, Filial filial, Double salario) {
+	public Funcionario(Integer codigo, String senha, Double salario) {
 		super();
 		this.codigo = codigo;
 		this.senha = senha;
-		this.filial = filial;
 		this.salario = salario;
 	}
 
@@ -35,13 +33,6 @@ public class Funcionario extends Pessoa {
 		this.senha = senha;
 	}
 
-	public Filial getFilial() {
-		return filial;
-	}
-
-	public void setFilial(Filial filial) {
-		this.filial = filial;
-	}
 
 	public Double getSalario() {
 		return salario;
@@ -53,8 +44,9 @@ public class Funcionario extends Pessoa {
 
 	@Override
 	public String toString() {
-		return "Funcionario [codigo=" + codigo + ", senha=" + senha + ", filial=" + filial + ", salario=" + salario
-				+ "]";
+		return "Funcionario [codigo=" + codigo + ", senha=" + senha + ", salario=" + salario + "]";
 	}
+
+	
 
 }
