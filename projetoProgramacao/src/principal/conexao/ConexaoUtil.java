@@ -9,8 +9,11 @@ public class ConexaoUtil {
 	private static Connection connection;
 	
 	static{
-		TipoConexao tipoConexao = TipoConexao
-				.valueOf(System.getProperty("tipoConexao"));
+		TipoConexao tipoConexao = TipoConexao.CLIENTE;
+		if (System.getProperty("tipoConexao") != null) {
+			tipoConexao = TipoConexao
+					.valueOf(System.getProperty("tipoConexao"));
+		}
 		try{
 			connection = 
 					DriverManager.getConnection(
