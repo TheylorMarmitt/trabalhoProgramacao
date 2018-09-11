@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+
+<fx:root type="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="CadastroClienteController">
+   <children>
+      <Pane layoutX="-1.0" layoutY="4.0" prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <Label layoutX="21.0" layoutY="161.0" text="Nome:" />
+            <Label layoutX="386.0" layoutY="161.0" text="Sobrenome:" />
+            <TextField fx:id="tfNome" layoutX="88.0" layoutY="157.0" />
+            <TextField fx:id="tfSobrenome" layoutX="464.0" layoutY="157.0" />
+            <Label layoutX="13.0" layoutY="208.0" text="Data de Nascimento:" />
+            <DatePicker fx:id="dtNascimento" layoutX="137.0" layoutY="204.0" />
+            <Label layoutX="394.0" layoutY="254.0" text="Telefone:" />
+            <TextField fx:id="tfTelefone" layoutX="471.0" layoutY="250.0" />
+            <Label layoutX="26.0" layoutY="254.0" text="CPF: " />
+            <TextField fx:id="tfCpf" layoutX="88.0" layoutY="250.0" />
+            <Label layoutX="401.0" layoutY="292.0" text="E-mail:" />
+            <TextField fx:id="tfEmail" layoutX="471.0" layoutY="288.0" />
+            <Label layoutX="39.0" layoutY="292.0" text="CNH:" />
+            <TextField layoutX="88.0" layoutY="288.0" />
+            <Text layoutX="293.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CADASTRO DE CLIENTE" />
+         </children>
+      </Pane>
+   </children>
+</fx:root>
