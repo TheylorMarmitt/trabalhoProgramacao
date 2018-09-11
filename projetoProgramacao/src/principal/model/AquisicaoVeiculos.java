@@ -1,36 +1,31 @@
 package principal.model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class AquisicaoVeiculos {
 
 	private LocalDate dataDeAquisicao;
-	private LocalDate dataDeDesapropriacao;
+	private LocalDate dataDeDesapropriacao = null;
 	private Integer codigo;
-	private ArrayList<Carro> carros;
+	private Carro carro;
 	private Filial filial;
 
-	public void removerVeiculo(Carro carro) {
-		for(Carro car: carros) {
-			if(car.equals(carro)) {
-				this.setDataDeDesapropriacao(LocalDate.now());
-				carros.remove(car);
-			}
-		}
+	public void desapropriarVeiculo() {
+		this.dataDeDesapropriacao = LocalDate.now();
 	}
-
+	
+	
 	public AquisicaoVeiculos() {
 
 	}
 
-	public AquisicaoVeiculos(LocalDate dataDeAquisicao, LocalDate dataDeDesapropriacao, Integer codigo,
-			ArrayList<Carro> carros, Filial filial) {
+	public AquisicaoVeiculos(LocalDate dataDeAquisicao, LocalDate dataDeDesapropriacao, Integer codigo, Carro carro,
+			Filial filial) {
 		super();
 		this.dataDeAquisicao = dataDeAquisicao;
 		this.dataDeDesapropriacao = dataDeDesapropriacao;
 		this.codigo = codigo;
-		this.carros = carros;
+		this.carro = carro;
 		this.filial = filial;
 	}
 
@@ -58,14 +53,6 @@ public class AquisicaoVeiculos {
 		this.codigo = codigo;
 	}
 
-	public ArrayList<Carro> getCarros() {
-		return carros;
-	}
-
-	public void setCarros(ArrayList<Carro> carros) {
-		this.carros = carros;
-	}
-
 	public Filial getFilial() {
 		return filial;
 	}
@@ -74,10 +61,18 @@ public class AquisicaoVeiculos {
 		this.filial = filial;
 	}
 
+	public Carro getCarro() {
+		return carro;
+	}
+
+	public void setCarro(Carro carro) {
+		this.carro = carro;
+	}
+
 	@Override
 	public String toString() {
 		return "AquisicaoVeiculos [dataDeAquisicao=" + dataDeAquisicao + ", dataDeDesapropriacao="
-				+ dataDeDesapropriacao + ", codigo=" + codigo + ", carros=" + carros + ", filial=" + filial + "]";
+				+ dataDeDesapropriacao + ", codigo=" + codigo + ", carro=" + carro + ", filial=" + filial + "]";
 	}
 
 }

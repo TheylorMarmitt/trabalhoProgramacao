@@ -1,38 +1,39 @@
 package principal.model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class ControleFuncionarios {
 
 	private LocalDate dataDeAdmissao;
-	private LocalDate dataDeDemissao;
+	private LocalDate dataDeDemissao = null;
 	private Integer codigo;
-	private ArrayList<Funcionario> funcionario;
+	private Funcionario funcionario;
 	private Filial filial;
 
-	public void demitir(Funcionario fun) {
-		for(Funcionario f: funcionario) {
-			if(f.equals(fun)) {
-				this.setDataDeDemissao(LocalDate.now());
-				funcionario.remove(f);
-			}
-		}
-		
+	public void demitir() {
+		this.dataDeDemissao = LocalDate.now();
 	}
 	
 	public ControleFuncionarios() {
-		
+
 	}
 
 	public ControleFuncionarios(LocalDate dataDeAdmissao, LocalDate dataDeDemissao, Integer codigo,
-			ArrayList<Funcionario> funcionario, Filial filial) {
+			Funcionario funcionario, Filial filial) {
 		super();
 		this.dataDeAdmissao = dataDeAdmissao;
 		this.dataDeDemissao = dataDeDemissao;
 		this.codigo = codigo;
 		this.funcionario = funcionario;
 		this.filial = filial;
+	}
+
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
 	}
 
 	public LocalDate getDataDeAdmissao() {
@@ -57,15 +58,6 @@ public class ControleFuncionarios {
 
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
-	}
-
-	public ArrayList<Funcionario> getFuncionario() {
-		return funcionario;
-	}
-
-	public void setFuncionario(ArrayList<Funcionario> funcionario) {
-		this.funcionario = funcionario;
-		this.dataDeAdmissao = LocalDate.now();
 	}
 
 	public Filial getFilial() {

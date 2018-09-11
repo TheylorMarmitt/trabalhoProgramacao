@@ -23,7 +23,7 @@ public class AluguelJDBC implements AluguelDAO {
 	@Override
 	public void inserir(Aluguel dado) {
 		try {
-			String sql = "insert into aluguel values (?,?,?,?,?,?,?,?)";
+			String sql = "insert into Aluguel values (?,?,?,?,?,?,?,?)";
 			PreparedStatement statement = ConexaoUtil.getConn().prepareStatement(sql);
 			statement.setDate(2, Date.valueOf(dado.getDataAluguel()));
 			statement.setDouble(3, dado.getQuilometrosSaida());
@@ -48,7 +48,7 @@ public class AluguelJDBC implements AluguelDAO {
 	@Override
 	public void alterar(Aluguel dado) {
 		try {
-			String sql = "update aluguel set dataAluguel = ?, quilometroSaida= ?, codTipoAluguel= ?, codCliente=?, "
+			String sql = "update Aluguel set dataAluguel = ?, quilometroSaida= ?, codTipoAluguel= ?, codCliente=?, "
 					+ "codCarro=?, codFuncionario=?, codFilial=? where codigo = ?";
 			PreparedStatement statement = ConexaoUtil.getConn().prepareStatement(sql);
 
@@ -85,7 +85,7 @@ public class AluguelJDBC implements AluguelDAO {
 		List<Aluguel> alugueis = new ArrayList<>();
 		try {
 			Statement statement = ConexaoUtil.getConn().createStatement();
-			ResultSet rs = statement.executeQuery("select * from cliente");
+			ResultSet rs = statement.executeQuery("select * from Aluguel");
 			while (rs.next()) {
 				Aluguel aluguel = new Aluguel();
 				aluguel.setCodigo(rs.getInt("codigo"));
@@ -113,7 +113,7 @@ public class AluguelJDBC implements AluguelDAO {
 	public Aluguel buscar(Integer codigo) {
 		Aluguel aluguel = null;
 		try {
-			String sql = "select * from aluguel where codigo = ?";
+			String sql = "select * from Aluguel where codigo = ?";
 			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
 			ps.setInt(1, codigo);
 			ResultSet rs1 = ps.executeQuery();
@@ -142,7 +142,7 @@ public class AluguelJDBC implements AluguelDAO {
 	public TipoAluguel buscarTipoAluguel(Integer codigo) {
 		TipoAluguel tipoAluguel = null;
 		try {
-			String sql = "select * from tipoAluguel where codigo = ?";
+			String sql = "select * from TipoAluguel where codigo = ?";
 			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
 			ps.setInt(1, codigo);
 			ResultSet rs1 = ps.executeQuery();
@@ -163,7 +163,7 @@ public class AluguelJDBC implements AluguelDAO {
 	public Cliente buscarCliente(Integer codigo) {
 		Cliente cliente = null;
 		try {
-			String sql = "select * from cliente where codigo = ?";
+			String sql = "select * from Cliente where codigo = ?";
 			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
 			ps.setInt(1, codigo);
 			ResultSet rs1 = ps.executeQuery();
@@ -197,7 +197,7 @@ public class AluguelJDBC implements AluguelDAO {
 	public Carro buscarCarro(Integer codigo) {
 		Carro carro = null;
 		try {
-			String sql = "select * from carro where codigo = ?";
+			String sql = "select * from Carro where codigo = ?";
 			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
 			ps.setInt(1, codigo);
 			ResultSet rs1 = ps.executeQuery();
@@ -227,7 +227,7 @@ public class AluguelJDBC implements AluguelDAO {
 	public Funcionario buscarFuncionario(Integer codigo) {
 		Funcionario funcionario = null;
 		try {
-			String sql = "select * from funcionario where codigo = ?";
+			String sql = "select * from Funcionario where codigo = ?";
 			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
 			ps.setInt(1, codigo);
 			ResultSet rs1 = ps.executeQuery();
@@ -260,7 +260,7 @@ public class AluguelJDBC implements AluguelDAO {
 	public Filial buscarFilial(Integer codigo) {
 		Filial filial = null;
 		try {
-			String sql = "select * from filial where codigo = ?";
+			String sql = "select * from Filial where codigo = ?";
 			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
 			ps.setInt(1, codigo);
 			ResultSet rs1 = ps.executeQuery();
