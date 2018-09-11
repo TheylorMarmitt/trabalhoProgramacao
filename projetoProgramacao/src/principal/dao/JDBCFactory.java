@@ -4,43 +4,42 @@ public class JDBCFactory implements DaoFactory{
 
 	@Override
 	public ClienteDAO clienteDao() {
-		return null;
+		return new ClienteJDBC();
 	}
 
 	@Override
 	public AluguelDAO aluguelDao() {
-		return null;
+		return new AluguelJDBC();
 	}
 
 	@Override
 	public CarroDAO carroDao() {
-		return null;
+		return new CarroJDBC();
 	}
 
 	@Override
 	public DevolucaoDAO devolucaoDao() {
-		return null;
+		return new DevolucaoJDBC();
 	}
 
 	@Override
 	public FilialDAO filialDao() {
-		return null;
+		return new FilialJDBC();
 	}
 
 	@Override
 	public FuncionarioDAO funcionarioDao() {
-		return null;
+		return new FuncionarioJDBC();
 	}
 
 	@Override
 	public TipoAluguelDAO tipoAluguelDao() {
-		return null;
+		return new TipoAluguelJDBC();
 	}
 
 	@Override
 	public TipoPagamentoDAO tipoPagamentoDao() {
-		// TODO Auto-generated method stub
-		return null;
+		return new TipoPagamentoJDBC();
 	}
 
 }
