@@ -12,8 +12,6 @@ import java.util.List;
 
 import principal.conexao.ConexaoUtil;
 import principal.model.AquisicaoVeiculos;
-import principal.model.Carro;
-import principal.model.Filial;
 
 public class AquisicaoVeiculosJDBC implements AquisicaoVeiculosDAO {
 
@@ -86,8 +84,10 @@ public class AquisicaoVeiculosJDBC implements AquisicaoVeiculosDAO {
 				data = rs.getDate("dataDesapropriacao");
 				aquisicaoVeiculos.setDataDeDesapropriacao(
 						Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
-				aquisicaoVeiculos.setCarro(buscarCarro(rs.getInt("codCarro")));
-				aquisicaoVeiculos.setFilial(buscarFilial(rs.getInt("codFilial")));
+				CarroJDBC carroJDBC = new CarroJDBC();
+				aquisicaoVeiculos.setCarro(carroJDBC.buscar(rs.getInt("codCarro")));
+				FilialJDBC filialJDBC = new FilialJDBC();
+				aquisicaoVeiculos.setFilial(filialJDBC.buscar(rs.getInt("codFilial")));
 
 				aquisicao.add(aquisicaoVeiculos);
 			}
@@ -118,8 +118,10 @@ public class AquisicaoVeiculosJDBC implements AquisicaoVeiculosDAO {
 				aquisicao.setDataDeAquisicao(
 						Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
 
-				aquisicao.setCarro(buscarCarro(rs1.getInt("codCarro")));
-				aquisicao.setFilial(buscarFilial(rs1.getInt("codFilial")));
+				CarroJDBC carroJDBC = new CarroJDBC();
+				aquisicao.setCarro(carroJDBC.buscar(rs1.getInt("codCarro")));
+				FilialJDBC filialJDBC = new FilialJDBC();
+				aquisicao.setFilial(filialJDBC.buscar(rs1.getInt("codFilial")));
 
 			}
 		} catch (SQLException e) {
@@ -129,56 +131,56 @@ public class AquisicaoVeiculosJDBC implements AquisicaoVeiculosDAO {
 
 	}
 
-	public Carro buscarCarro(Integer codigo) {
-		Carro carro = null;
-		try {
-			String sql = "select * from Carro where codigo = ?";
-			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
-			ps.setInt(1, codigo);
-			ResultSet rs1 = ps.executeQuery();
-			while (rs1.next()) {
-				carro = new Carro();
-				carro.setCodigo(rs1.getInt("codigo"));
-				carro.setMarca(rs1.getString("marca"));
-				carro.setModelo(rs1.getString("modelo"));
-				carro.setValor(rs1.getDouble("valor"));
-				carro.setCor(rs1.getString("cor"));
+//	public Carro buscarCarro(Integer codigo) {
+//		Carro carro = null;
+//		try {
+//			String sql = "select * from Carro where codigo = ?";
+//			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
+//			ps.setInt(1, codigo);
+//			ResultSet rs1 = ps.executeQuery();
+//			while (rs1.next()) {
+//				carro = new Carro();
+//				carro.setCodigo(rs1.getInt("codigo"));
+//				carro.setMarca(rs1.getString("marca"));
+//				carro.setModelo(rs1.getString("modelo"));
+//				carro.setValor(rs1.getDouble("valor"));
+//				carro.setCor(rs1.getString("cor"));
+//
+//				Date data = rs1.getDate("ano");
+//				carro.setAno(Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
+//
+//				carro.setPlaca(rs1.getString("placa"));
+//
+//				carro.setDisponivel(rs1.getBoolean("disponivel"));
+//
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		return carro;
+//
+//	}
 
-				Date data = rs1.getDate("ano");
-				carro.setAno(Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
-
-				carro.setPlaca(rs1.getString("placa"));
-
-				carro.setDisponivel(rs1.getBoolean("disponivel"));
-
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return carro;
-
-	}
-
-	public Filial buscarFilial(Integer codigo) {
-		Filial filial = null;
-		try {
-			String sql = "select * from Filial where codigo = ?";
-			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
-			ps.setInt(1, codigo);
-			ResultSet rs1 = ps.executeQuery();
-			while (rs1.next()) {
-				filial = new Filial();
-				filial.setCodigo(rs1.getInt("codigo"));
-				filial.setNome(rs1.getString("nome"));
-				filial.setCidade(rs1.getString("cidade"));
-				filial.setUf(rs1.getString("uf"));
-
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return filial;
-
-	}
+//	public Filial buscarFilial(Integer codigo) {
+//		Filial filial = null;
+//		try {
+//			String sql = "select * from Filial where codigo = ?";
+//			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
+//			ps.setInt(1, codigo);
+//			ResultSet rs1 = ps.executeQuery();
+//			while (rs1.next()) {
+//				filial = new Filial();
+//				filial.setCodigo(rs1.getInt("codigo"));
+//				filial.setNome(rs1.getString("nome"));
+//				filial.setCidade(rs1.getString("cidade"));
+//				filial.setUf(rs1.getString("uf"));
+//
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		return filial;
+//
+//	}
 
 }

@@ -12,8 +12,6 @@ import java.util.List;
 
 import principal.conexao.ConexaoUtil;
 import principal.model.ControleFuncionarios;
-import principal.model.Filial;
-import principal.model.Funcionario;
 
 public class ControleFuncionariosJDBC implements ControleFuncionariosDAO {
 
@@ -77,8 +75,10 @@ public class ControleFuncionariosJDBC implements ControleFuncionariosDAO {
 			while (rs.next()) {
 				ControleFuncionarios control = new ControleFuncionarios();
 				control.setCodigo(rs.getInt("codigo"));
-				control.setFilial(buscarFilial(rs.getInt("codFilial")));
-				control.setFuncionario(buscarFuncionario(rs.getInt("codFuncionario")));
+				FilialJDBC filialJDBC = new FilialJDBC();
+				control.setFilial(filialJDBC.buscar(rs.getInt("codFilial")));
+				FuncionarioJDBC funcionarioJDBC = new FuncionarioJDBC();
+				control.setFuncionario(funcionarioJDBC.buscar(rs.getInt("codFuncionario")));
 
 				Date data = rs.getDate("dataAdmissao");
 				control.setDataDeAdmissao(
@@ -108,8 +108,10 @@ public class ControleFuncionariosJDBC implements ControleFuncionariosDAO {
 			while (rs1.next()) {
 				controle = new ControleFuncionarios();
 				controle.setCodigo(rs1.getInt("codigo"));
-				controle.setFilial(buscarFilial(rs1.getInt("codFilial")));
-				controle.setFuncionario(buscarFuncionario(rs1.getInt("codFuncionario")));
+				FilialJDBC filialJDBC = new FilialJDBC();
+				controle.setFilial(filialJDBC.buscar(rs1.getInt("codFilial")));
+				FuncionarioJDBC funcionarioJDBC = new FuncionarioJDBC();
+				controle.setFuncionario(funcionarioJDBC.buscar(rs1.getInt("codFuncionario")));
 
 				Date data = rs1.getDate("dataAdmissao");
 				controle.setDataDeAdmissao(
@@ -126,59 +128,59 @@ public class ControleFuncionariosJDBC implements ControleFuncionariosDAO {
 
 	}
 
-	public Filial buscarFilial(Integer codigo) {
-		Filial filial = null;
-		try {
-			String sql = "select * from Filial where codigo = ?";
-			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
-			ps.setInt(1, codigo);
-			ResultSet rs1 = ps.executeQuery();
-			while (rs1.next()) {
-				filial = new Filial();
-				filial.setCodigo(rs1.getInt("codigo"));
-				filial.setNome(rs1.getString("nome"));
-				filial.setCidade(rs1.getString("cidade"));
-				filial.setUf(rs1.getString("uf"));
+//	public Filial buscarFilial(Integer codigo) {
+//		Filial filial = null;
+//		try {
+//			String sql = "select * from Filial where codigo = ?";
+//			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
+//			ps.setInt(1, codigo);
+//			ResultSet rs1 = ps.executeQuery();
+//			while (rs1.next()) {
+//				filial = new Filial();
+//				filial.setCodigo(rs1.getInt("codigo"));
+//				filial.setNome(rs1.getString("nome"));
+//				filial.setCidade(rs1.getString("cidade"));
+//				filial.setUf(rs1.getString("uf"));
+//
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		return filial;
+//
+//	}
 
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return filial;
-
-	}
-
-	public Funcionario buscarFuncionario(Integer codigo) {
-		Funcionario funcionario = null;
-		try {
-			String sql = "select * from Funcionario where codigo = ?";
-			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
-			ps.setInt(1, codigo);
-			ResultSet rs1 = ps.executeQuery();
-			while (rs1.next()) {
-				funcionario = new Funcionario();
-				funcionario.setCodigo(rs1.getInt("codigo"));
-
-				funcionario.setNome(rs1.getString("nome"));
-				funcionario.setSobrenome("sobrenome");
-				Date data = rs1.getDate("dataNascimento");
-				funcionario.setDataNascimento(
-						Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
-
-				funcionario.setTelefone(rs1.getString("telefone"));
-				funcionario.setCpf(rs1.getString("cpf"));
-				funcionario.setEmail(rs1.getString("email"));
-
-				funcionario.setSenha(rs1.getString("senha"));
-
-				funcionario.setSalario(rs1.getDouble("salario"));
-
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return funcionario;
-
-	}
+//	public Funcionario buscarFuncionario(Integer codigo) {
+//		Funcionario funcionario = null;
+//		try {
+//			String sql = "select * from Funcionario where codigo = ?";
+//			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
+//			ps.setInt(1, codigo);
+//			ResultSet rs1 = ps.executeQuery();
+//			while (rs1.next()) {
+//				funcionario = new Funcionario();
+//				funcionario.setCodigo(rs1.getInt("codigo"));
+//
+//				funcionario.setNome(rs1.getString("nome"));
+//				funcionario.setSobrenome("sobrenome");
+//				Date data = rs1.getDate("dataNascimento");
+//				funcionario.setDataNascimento(
+//						Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
+//
+//				funcionario.setTelefone(rs1.getString("telefone"));
+//				funcionario.setCpf(rs1.getString("cpf"));
+//				funcionario.setEmail(rs1.getString("email"));
+//
+//				funcionario.setSenha(rs1.getString("senha"));
+//
+//				funcionario.setSalario(rs1.getDouble("salario"));
+//
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		return funcionario;
+//
+//	}
 
 }

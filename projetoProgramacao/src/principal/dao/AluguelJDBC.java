@@ -12,11 +12,6 @@ import java.util.List;
 
 import principal.conexao.ConexaoUtil;
 import principal.model.Aluguel;
-import principal.model.Carro;
-import principal.model.Cliente;
-import principal.model.Filial;
-import principal.model.Funcionario;
-import principal.model.TipoAluguel;
 
 public class AluguelJDBC implements AluguelDAO {
 
@@ -94,11 +89,16 @@ public class AluguelJDBC implements AluguelDAO {
 				aluguel.setDataAluguel(
 						Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
 
-				aluguel.setTipoAluguel(buscarTipoAluguel(rs.getInt("codTipoAluguel")));
-				aluguel.setCliente(buscarCliente(rs.getInt("codCliente")));
-				aluguel.setCarro(buscarCarro(rs.getInt("codCarro")));
-				aluguel.setFuncionario(buscarFuncionario(rs.getInt("codFuncionario")));
-				aluguel.setFilial(buscarFilial(rs.getInt("codFilial")));
+				TipoAluguelJDBC tipoAluguelJDBC = new TipoAluguelJDBC();
+				aluguel.setTipoAluguel(tipoAluguelJDBC.buscar(rs.getInt("codTipoAluguel")));
+				ClienteJDBC clienteJDBC = new ClienteJDBC();
+				aluguel.setCliente(clienteJDBC.buscar(rs.getInt("codCliente")));
+				CarroJDBC carroJDBC = new CarroJDBC();
+				aluguel.setCarro(carroJDBC.buscar(rs.getInt("codCarro")));
+				FuncionarioJDBC funcionarioJDBC = new FuncionarioJDBC(); 
+				aluguel.setFuncionario(funcionarioJDBC.buscar(rs.getInt("codFuncionario")));
+				FilialJDBC filialJDBC = new FilialJDBC();
+				aluguel.setFilial(filialJDBC.buscar(rs.getInt("codFilial")));
 
 				alugueis.add(aluguel);
 			}
@@ -124,12 +124,17 @@ public class AluguelJDBC implements AluguelDAO {
 				Date data = rs1.getDate("dataAluguel");
 				aluguel.setDataAluguel(
 						Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
-
-				aluguel.setTipoAluguel(buscarTipoAluguel(rs1.getInt("codTipoAluguel")));
-				aluguel.setCliente(buscarCliente(rs1.getInt("codCliente")));
-				aluguel.setCarro(buscarCarro(rs1.getInt("codCarro")));
-				aluguel.setFuncionario(buscarFuncionario(rs1.getInt("codFuncionario")));
-				aluguel.setFilial(buscarFilial(rs1.getInt("codFilial")));
+				
+				TipoAluguelJDBC tipoAluguelJDBC = new TipoAluguelJDBC();
+				aluguel.setTipoAluguel(tipoAluguelJDBC.buscar(rs1.getInt("codTipoAluguel")));
+				ClienteJDBC clienteJDBC = new ClienteJDBC();
+				aluguel.setCliente(clienteJDBC.buscar(rs1.getInt("codCliente")));
+				CarroJDBC carroJDBC = new CarroJDBC();
+				aluguel.setCarro(carroJDBC.buscar(rs1.getInt("codCarro")));
+				FuncionarioJDBC funcionarioJDBC = new FuncionarioJDBC(); 
+				aluguel.setFuncionario(funcionarioJDBC.buscar(rs1.getInt("codFuncionario")));
+				FilialJDBC filialJDBC = new FilialJDBC();
+				aluguel.setFilial(filialJDBC.buscar(rs1.getInt("codFilial")));
 
 			}
 		} catch (SQLException e) {
@@ -139,144 +144,144 @@ public class AluguelJDBC implements AluguelDAO {
 
 	}
 
-	public TipoAluguel buscarTipoAluguel(Integer codigo) {
-		TipoAluguel tipoAluguel = null;
-		try {
-			String sql = "select * from TipoAluguel where codigo = ?";
-			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
-			ps.setInt(1, codigo);
-			ResultSet rs1 = ps.executeQuery();
-			while (rs1.next()) {
-				tipoAluguel = new TipoAluguel();
-				tipoAluguel.setCodigo(rs1.getInt("codigo"));
-				tipoAluguel.setDescricao(rs1.getString("descricao"));
-				tipoAluguel.setValor(rs1.getDouble("valor"));
-				tipoAluguel.setTaxa(rs1.getDouble("taxa"));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return tipoAluguel;
+//	public TipoAluguel buscarTipoAluguel(Integer codigo) {
+//		TipoAluguel tipoAluguel = null;
+//		try {
+//			String sql = "select * from TipoAluguel where codigo = ?";
+//			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
+//			ps.setInt(1, codigo);
+//			ResultSet rs1 = ps.executeQuery();
+//			while (rs1.next()) {
+//				tipoAluguel = new TipoAluguel();
+//				tipoAluguel.setCodigo(rs1.getInt("codigo"));
+//				tipoAluguel.setDescricao(rs1.getString("descricao"));
+//				tipoAluguel.setValor(rs1.getDouble("valor"));
+//				tipoAluguel.setTaxa(rs1.getDouble("taxa"));
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		return tipoAluguel;
+//
+//	}
 
-	}
+//	public Cliente buscarCliente(Integer codigo) {
+//		Cliente cliente = null;
+//		try {
+//			String sql = "select * from Cliente where codigo = ?";
+//			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
+//			ps.setInt(1, codigo);
+//			ResultSet rs1 = ps.executeQuery();
+//			while (rs1.next()) {
+//				cliente = new Cliente();
+//				cliente.setCodigo(rs1.getInt("codigo"));
+//				cliente.setNome(rs1.getString("nome"));
+//				cliente.setSobrenome("sobrenome");
+//				Date data = rs1.getDate("dataNascimento");
+//				cliente.setDataNascimento(
+//						Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
+//
+//				cliente.setTelefone(rs1.getString("telefone"));
+//				cliente.setCpf(rs1.getString("cpf"));
+//				cliente.setEmail(rs1.getString("email"));
+//
+//				data = rs1.getDate("dataCadastro");
+//				cliente.setDataDeCadastro(
+//						Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
+//
+//				cliente.setCodigo(rs1.getInt("cnh"));
+//
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		return cliente;
+//
+//	}
 
-	public Cliente buscarCliente(Integer codigo) {
-		Cliente cliente = null;
-		try {
-			String sql = "select * from Cliente where codigo = ?";
-			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
-			ps.setInt(1, codigo);
-			ResultSet rs1 = ps.executeQuery();
-			while (rs1.next()) {
-				cliente = new Cliente();
-				cliente.setCodigo(rs1.getInt("codigo"));
-				cliente.setNome(rs1.getString("nome"));
-				cliente.setSobrenome("sobrenome");
-				Date data = rs1.getDate("dataNascimento");
-				cliente.setDataNascimento(
-						Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
+//	public Carro buscarCarro(Integer codigo) {
+//		Carro carro = null;
+//		try {
+//			String sql = "select * from Carro where codigo = ?";
+//			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
+//			ps.setInt(1, codigo);
+//			ResultSet rs1 = ps.executeQuery();
+//			while (rs1.next()) {
+//				carro = new Carro();
+//				carro.setCodigo(rs1.getInt("codigo"));
+//				carro.setMarca(rs1.getString("marca"));
+//				carro.setModelo(rs1.getString("modelo"));
+//				carro.setValor(rs1.getDouble("valor"));
+//				carro.setCor(rs1.getString("cor"));
+//
+//				Date data = rs1.getDate("ano");
+//				carro.setAno(Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
+//
+//				carro.setPlaca(rs1.getString("placa"));
+//
+//				carro.setDisponivel(rs1.getBoolean("disponivel"));
+//
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		return carro;
+//
+//	}
 
-				cliente.setTelefone(rs1.getString("telefone"));
-				cliente.setCpf(rs1.getString("cpf"));
-				cliente.setEmail(rs1.getString("email"));
+//	public Funcionario buscarFuncionario(Integer codigo) {
+//		Funcionario funcionario = null;
+//		try {
+//			String sql = "select * from Funcionario where codigo = ?";
+//			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
+//			ps.setInt(1, codigo);
+//			ResultSet rs1 = ps.executeQuery();
+//			while (rs1.next()) {
+//				funcionario = new Funcionario();
+//				funcionario.setCodigo(rs1.getInt("codigo"));
+//
+//				funcionario.setNome(rs1.getString("nome"));
+//				funcionario.setSobrenome("sobrenome");
+//				Date data = rs1.getDate("dataNascimento");
+//				funcionario.setDataNascimento(
+//						Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
+//
+//				funcionario.setTelefone(rs1.getString("telefone"));
+//				funcionario.setCpf(rs1.getString("cpf"));
+//				funcionario.setEmail(rs1.getString("email"));
+//
+//				funcionario.setSenha(rs1.getString("senha"));
+//
+//				funcionario.setSalario(rs1.getDouble("salario"));
+//
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		return funcionario;
+//
+//	}
 
-				data = rs1.getDate("dataCadastro");
-				cliente.setDataDeCadastro(
-						Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
-
-				cliente.setCodigo(rs1.getInt("cnh"));
-
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return cliente;
-
-	}
-
-	public Carro buscarCarro(Integer codigo) {
-		Carro carro = null;
-		try {
-			String sql = "select * from Carro where codigo = ?";
-			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
-			ps.setInt(1, codigo);
-			ResultSet rs1 = ps.executeQuery();
-			while (rs1.next()) {
-				carro = new Carro();
-				carro.setCodigo(rs1.getInt("codigo"));
-				carro.setMarca(rs1.getString("marca"));
-				carro.setModelo(rs1.getString("modelo"));
-				carro.setValor(rs1.getDouble("valor"));
-				carro.setCor(rs1.getString("cor"));
-
-				Date data = rs1.getDate("ano");
-				carro.setAno(Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
-
-				carro.setPlaca(rs1.getString("placa"));
-
-				carro.setDisponivel(rs1.getBoolean("disponivel"));
-
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return carro;
-
-	}
-
-	public Funcionario buscarFuncionario(Integer codigo) {
-		Funcionario funcionario = null;
-		try {
-			String sql = "select * from Funcionario where codigo = ?";
-			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
-			ps.setInt(1, codigo);
-			ResultSet rs1 = ps.executeQuery();
-			while (rs1.next()) {
-				funcionario = new Funcionario();
-				funcionario.setCodigo(rs1.getInt("codigo"));
-
-				funcionario.setNome(rs1.getString("nome"));
-				funcionario.setSobrenome("sobrenome");
-				Date data = rs1.getDate("dataNascimento");
-				funcionario.setDataNascimento(
-						Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
-
-				funcionario.setTelefone(rs1.getString("telefone"));
-				funcionario.setCpf(rs1.getString("cpf"));
-				funcionario.setEmail(rs1.getString("email"));
-
-				funcionario.setSenha(rs1.getString("senha"));
-
-				funcionario.setSalario(rs1.getDouble("salario"));
-
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return funcionario;
-
-	}
-
-	public Filial buscarFilial(Integer codigo) {
-		Filial filial = null;
-		try {
-			String sql = "select * from Filial where codigo = ?";
-			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
-			ps.setInt(1, codigo);
-			ResultSet rs1 = ps.executeQuery();
-			while (rs1.next()) {
-				filial = new Filial();
-				filial.setCodigo(rs1.getInt("codigo"));
-				filial.setNome(rs1.getString("nome"));
-				filial.setCidade(rs1.getString("cidade"));
-				filial.setUf(rs1.getString("uf"));
-
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return filial;
-
-	}
+//	public Filial buscarFilial(Integer codigo) {
+//		Filial filial = null;
+//		try {
+//			String sql = "select * from Filial where codigo = ?";
+//			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
+//			ps.setInt(1, codigo);
+//			ResultSet rs1 = ps.executeQuery();
+//			while (rs1.next()) {
+//				filial = new Filial();
+//				filial.setCodigo(rs1.getInt("codigo"));
+//				filial.setNome(rs1.getString("nome"));
+//				filial.setCidade(rs1.getString("cidade"));
+//				filial.setUf(rs1.getString("uf"));
+//
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		return filial;
+//
+//	}
 
 }
