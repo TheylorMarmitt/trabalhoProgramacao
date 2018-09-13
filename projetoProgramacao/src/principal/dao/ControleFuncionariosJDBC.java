@@ -18,17 +18,13 @@ public class ControleFuncionariosJDBC implements ControleFuncionariosDAO {
 	@Override
 	public void inserir(ControleFuncionarios dado) {
 		try {
-			String sql = "insert into ControleFuncionarios values (?,?,?,?,?)";
+			String sql = "insert into ControleFuncionarios(codFilial, codFuncionario, dataAdmissao, dataDemissao) values (?,?,?,?)";
 			PreparedStatement statement = ConexaoUtil.getConn().prepareStatement(sql);
-			statement.setInt(2, dado.getFilial().getCodigo());
-			statement.setInt(3, dado.getFuncionario().getCodigo());
-			statement.setDate(4, Date.valueOf(dado.getDataDeAdmissao()));
-			statement.setDate(5, Date.valueOf(dado.getDataDeDemissao()));
+			statement.setInt(1, dado.getFilial().getCodigo());
+			statement.setInt(2, dado.getFuncionario().getCodigo());
+			statement.setDate(3, Date.valueOf(dado.getDataDeAdmissao()));
+			statement.setDate(4, Date.valueOf(dado.getDataDeDemissao()));
 			statement.executeUpdate();
-
-			ResultSet rs = statement.getGeneratedKeys();
-			rs.next();
-			dado.setCodigo(rs.getInt(1));
 
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -18,17 +18,13 @@ public class AquisicaoVeiculosJDBC implements AquisicaoVeiculosDAO {
 	@Override
 	public void inserir(AquisicaoVeiculos dado) {
 		try {
-			String sql = "insert into AquisicaoVeiculos values (?,?,?,?,?)";
+			String sql = "insert into AquisicaoVeiculos(dataAquisicao, dataDesapropriacao, codCarro, codFilial) values (?,?,?,?)";
 			PreparedStatement statement = ConexaoUtil.getConn().prepareStatement(sql);
-			statement.setDate(2, Date.valueOf(dado.getDataDeAquisicao()));
-			statement.setDate(3, Date.valueOf(dado.getDataDeDesapropriacao()));
-			statement.setInt(4, dado.getCarro().getCodigo());
-			statement.setInt(5, dado.getFilial().getCodigo());
+			statement.setDate(1, Date.valueOf(dado.getDataDeAquisicao()));
+			statement.setDate(2, Date.valueOf(dado.getDataDeDesapropriacao()));
+			statement.setInt(3, dado.getCarro().getCodigo());
+			statement.setInt(4, dado.getFilial().getCodigo());
 			statement.executeUpdate();
-
-			ResultSet rs = statement.getGeneratedKeys();
-			rs.next();
-			dado.setCodigo(rs.getInt(1));
 
 		} catch (SQLException e) {
 			e.printStackTrace();

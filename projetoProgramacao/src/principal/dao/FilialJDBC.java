@@ -15,16 +15,13 @@ public class FilialJDBC implements FilialDAO {
 	@Override
 	public void inserir(Filial dado) {
 		try {
-			String sql = "insert into Filial values (?,?,?,?)";
+			String sql = "insert into Filial(nome, cidade, uf) values (?,?,?)";
 			PreparedStatement statement = ConexaoUtil.getConn().prepareStatement(sql);
-			statement.setString(2, dado.getNome());
-			statement.setString(3, dado.getCidade());
-			statement.setString(4, dado.getUf());
+			statement.setString(1, dado.getNome());
+			statement.setString(2, dado.getCidade());
+			statement.setString(3, dado.getUf());
 			statement.executeUpdate();
 
-			ResultSet rs = statement.getGeneratedKeys();
-			rs.next();
-			dado.setCodigo(rs.getInt(1));
 
 		} catch (SQLException e) {
 			e.printStackTrace();

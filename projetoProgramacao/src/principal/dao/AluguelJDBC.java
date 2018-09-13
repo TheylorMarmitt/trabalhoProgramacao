@@ -18,21 +18,17 @@ public class AluguelJDBC implements AluguelDAO {
 	@Override
 	public void inserir(Aluguel dado) {
 		try {
-			String sql = "insert into Aluguel values (?,?,?,?,?,?,?,?)";
+			String sql = "insert into Aluguel (dataAluguel, quilometroSaida, codTipoAluguel, codCliente, codCarro, "
+					+ "codFuncionario, codFilial) values (?,?,?,?,?,?,?)";
 			PreparedStatement statement = ConexaoUtil.getConn().prepareStatement(sql);
-			statement.setDate(2, Date.valueOf(dado.getDataAluguel()));
-			statement.setDouble(3, dado.getQuilometrosSaida());
-			statement.setInt(4, dado.getTipoAluguel().getCodigo());
-			statement.setInt(5, dado.getCliente().getCodigo());
-			statement.setInt(6, dado.getCarro().getCodigo());
-			statement.setInt(7, dado.getFuncionario().getCodigo());
-			statement.setInt(8, dado.getFilial().getCodigo());
-
+			statement.setDate(1, Date.valueOf(dado.getDataAluguel()));
+			statement.setDouble(2, dado.getQuilometrosSaida());
+			statement.setInt(3, dado.getTipoAluguel().getCodigo());
+			statement.setInt(4, dado.getCliente().getCodigo());
+			statement.setInt(5, dado.getCarro().getCodigo());
+			statement.setInt(6, dado.getFuncionario().getCodigo());
+			statement.setInt(7, dado.getFilial().getCodigo());
 			statement.executeUpdate();
-
-			ResultSet rs = statement.getGeneratedKeys();
-			rs.next();
-			dado.setCodigo(rs.getInt(1));
 
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -18,21 +18,17 @@ public class ClienteJDBC implements ClienteDAO {
 	@Override
 	public void inserir(Cliente dado) {
 		try {
-			String sql = "insert into Cliente values (?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into Cliente(nome, sobrenome, dataNascimento, telefone, cpf, email, dataCadastro, cnh) values (?,?,?,?,?,?,?,?)";
 			PreparedStatement statement = ConexaoUtil.getConn().prepareStatement(sql);
-			statement.setString(2, dado.getNome());
-			statement.setString(3, dado.getSobrenome());
-			statement.setDate(4, Date.valueOf(dado.getDataNascimento()));
-			statement.setString(5, dado.getTelefone());
-			statement.setString(6, dado.getCpf());
-			statement.setString(7, dado.getEmail());
-			statement.setDate(8, Date.valueOf(dado.getDataDeCadastro()));
-			statement.setString(9, dado.getCnh());
+			statement.setString(1, dado.getNome());
+			statement.setString(2, dado.getSobrenome());
+			statement.setDate(3, Date.valueOf(dado.getDataNascimento()));
+			statement.setString(4, dado.getTelefone());
+			statement.setString(5, dado.getCpf());
+			statement.setString(6, dado.getEmail());
+			statement.setDate(7, Date.valueOf(dado.getDataDeCadastro()));
+			statement.setString(8, dado.getCnh());
 			statement.executeUpdate();
-
-			ResultSet rs = statement.getGeneratedKeys();
-			rs.next();
-			dado.setCodigo(rs.getInt(1));
 
 		} catch (SQLException e) {
 			e.printStackTrace();

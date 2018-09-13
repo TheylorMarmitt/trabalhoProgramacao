@@ -18,21 +18,18 @@ public class FuncionarioJDBC implements FuncionarioDAO {
 	@Override
 	public void inserir(Funcionario dado) {
 		try {
-			String sql = "insert into Funcionario values (?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into Funcionario(nome, sobrenome, dataNascimento, telefone, cpf, email, senha, salario) values (?,?,?,?,?,?,?,?)";
 			PreparedStatement statement = ConexaoUtil.getConn().prepareStatement(sql);
-			statement.setString(2, dado.getNome());
-			statement.setString(3, dado.getSobrenome());
-			statement.setDate(4, Date.valueOf(dado.getDataNascimento()));
-			statement.setString(5, dado.getTelefone());
-			statement.setString(6, dado.getCpf());
-			statement.setString(7, dado.getEmail());
-			statement.setString(8, dado.getSenha());
-			statement.setDouble(9, dado.getSalario());
+			statement.setString(1, dado.getNome());
+			statement.setString(2, dado.getSobrenome());
+			statement.setDate(3, Date.valueOf(dado.getDataNascimento()));
+			statement.setString(4, dado.getTelefone());
+			statement.setString(5, dado.getCpf());
+			statement.setString(6, dado.getEmail());
+			statement.setString(7, dado.getSenha());
+			statement.setDouble(8, dado.getSalario());
 			statement.executeUpdate();
 
-			ResultSet rs = statement.getGeneratedKeys();
-			rs.next();
-			dado.setCodigo(rs.getInt(1));
 
 		} catch (SQLException e) {
 			e.printStackTrace();

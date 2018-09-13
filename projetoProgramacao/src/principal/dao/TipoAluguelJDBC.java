@@ -15,16 +15,12 @@ public class TipoAluguelJDBC implements TipoAluguelDAO{
 	@Override
 	public void inserir(TipoAluguel dado) {
 		try {
-			String sql = "insert into TipoAluguel values (?,?,?,?)";
+			String sql = "insert into TipoAluguel(descricao, valor, taxa) values (?,?,?)";
 			PreparedStatement statement = ConexaoUtil.getConn().prepareStatement(sql);
-			statement.setString(2, dado.getDescricao());
-			statement.setDouble(3, dado.getValor());
-			statement.setDouble(4, dado.getTaxa());
+			statement.setString(1, dado.getDescricao());
+			statement.setDouble(2, dado.getValor());
+			statement.setDouble(3, dado.getTaxa());
 			statement.executeUpdate();
-
-			ResultSet rs = statement.getGeneratedKeys();
-			rs.next();
-			dado.setCodigo(rs.getInt(1));
 
 		} catch (SQLException e) {
 			e.printStackTrace();

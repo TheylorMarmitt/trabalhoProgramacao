@@ -18,18 +18,14 @@ public class DevolucaoJDBC implements DevolucaoDAO{
 	@Override
 	public void inserir(Devolucao dado) {
 		try {
-			String sql = "insert into Devolucao values (?,?,?,?,?,?)";
+			String sql = "insert into Devolucao(dataChegada, quilometragemChegada, codAluguel, codTipoPagamento, valorTotal) values (?,?,?,?,?)";
 			PreparedStatement statement = ConexaoUtil.getConn().prepareStatement(sql);
-			statement.setDate(2, Date.valueOf(dado.getDataChegada()));
-			statement.setDouble(3, dado.getQuilometroChegada());
-			statement.setInt(4, dado.getAluguel().getCodigo());
-			statement.setInt(5, dado.getTipoPagamento().getCodigo());
-			statement.setDouble(6, dado.getValorTotal());
+			statement.setDate(1, Date.valueOf(dado.getDataChegada()));
+			statement.setDouble(2, dado.getQuilometroChegada());
+			statement.setInt(3, dado.getAluguel().getCodigo());
+			statement.setInt(4, dado.getTipoPagamento().getCodigo());
+			statement.setDouble(5, dado.getValorTotal());
 			statement.executeUpdate();
-
-			ResultSet rs = statement.getGeneratedKeys();
-			rs.next();
-			dado.setCodigo(rs.getInt(1));
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -41,7 +37,7 @@ public class DevolucaoJDBC implements DevolucaoDAO{
 	@Override
 	public void alterar(Devolucao dado) {
 		try {
-			String sql = "update Devolucao set dataChegada= ?, quilometragemChegada= ?, codAluguel= ?, codTipoPagamento=? where codigo = ?";
+			String sql = "update Devolucao set dataChegada= ?, quilometragemChegada= ?, codAluguel= ?, codTipoPagamento=?, valorTotal = ? where codigo = ?";
 			PreparedStatement statement = ConexaoUtil.getConn().prepareStatement(sql);
 			statement.setDate(1, Date.valueOf(dado.getDataChegada()));
 			statement.setDouble(2, dado.getQuilometroChegada());

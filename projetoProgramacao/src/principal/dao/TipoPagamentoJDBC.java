@@ -15,15 +15,11 @@ public class TipoPagamentoJDBC implements TipoPagamentoDAO {
 	@Override
 	public void inserir(TipoPagamento dado) {
 		try {
-			String sql = "insert into TipoPagamento values (?,?,?)";
+			String sql = "insert into TipoPagamento(descricao, desconto) values (?,?)";
 			PreparedStatement statement = ConexaoUtil.getConn().prepareStatement(sql);
-			statement.setString(2, dado.getDescricao());
-			statement.setDouble(3, dado.getDesconto());
+			statement.setString(1, dado.getDescricao());
+			statement.setDouble(2, dado.getDesconto());
 			statement.executeUpdate();
-
-			ResultSet rs = statement.getGeneratedKeys();
-			rs.next();
-			dado.setCodigo(rs.getInt(1));
 
 		} catch (SQLException e) {
 			e.printStackTrace();
