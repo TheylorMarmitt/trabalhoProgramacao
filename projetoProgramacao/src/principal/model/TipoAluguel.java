@@ -40,8 +40,7 @@ public class TipoAluguel {
 	}
 
 	public TipoAluguel() {
-		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public TipoAluguel(Integer codigo, String descricao, Double valor, Double taxa) {
