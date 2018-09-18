@@ -166,7 +166,6 @@ public class AluguelJDBC implements AluguelDAO {
 			e.printStackTrace();
 		}
 		return alugueis;
-
 	}
 	
 	

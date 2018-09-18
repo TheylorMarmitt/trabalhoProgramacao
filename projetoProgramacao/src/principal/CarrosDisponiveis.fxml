@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="principal.CarrosDisponiveisController">
+   <children>
+      <Pane layoutY="100.0" prefHeight="500.0" prefWidth="800.0">
+         <children>
+            <TableView fx:id="tblCarros" layoutX="20.0" prefHeight="485.0" prefWidth="760.0">
+               <columns>
+                  <TableColumn fx:id="tbcPlaca" prefWidth="61.042545318603516" text="Placa" />
+                  <TableColumn fx:id="tbcMarca" prefWidth="149.8794708251953" text="Marca" />
+                  <TableColumn fx:id="tbcModelo" minWidth="0.0" prefWidth="141.1205596923828" text="Modelo" />
+                  <TableColumn fx:id="tbcDisponibilidade" prefWidth="149.77304077148438" text="Disponibilidade" />
+                  <TableColumn fx:id="tbcValor" minWidth="0.0" prefWidth="126.2269287109375" text="Valor" />
+                  <TableColumn fx:id="tbcCor" minWidth="0.0" prefWidth="127.411376953125" text="Cor" />
+               </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Button fx:id="tbnBuscar" layoutX="395.0" layoutY="27.0" mnemonicParsing="false" onAction="#buscar" text="Buscar" />
+      <TextField fx:id="tfPlaca" layoutX="205.0" layoutY="27.0" prefHeight="27.0" prefWidth="196.0" />
+      <Label layoutX="92.0" layoutY="32.0" text="Placa do veiculo" />
+   </children>
+</AnchorPane>

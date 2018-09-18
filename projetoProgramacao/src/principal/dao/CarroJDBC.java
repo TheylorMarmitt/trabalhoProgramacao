@@ -9,7 +9,6 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
-
 import principal.conexao.ConexaoUtil;
 import principal.model.Carro;
 
@@ -127,6 +126,32 @@ public class CarroJDBC implements CarroDAO{
 			e.printStackTrace();
 		}
 		return carro;
+
+	}
+
+	@Override
+	public List<Carro> carrosDisponiveis() {
+		List<Carro> carros = new ArrayList<>();
+		try {
+			Statement statement = ConexaoUtil.getConn().createStatement();
+			ResultSet rs = statement.executeQuery("select * from Carro where disponivel = true");
+			while (rs.next()) {
+				Carro carro = new Carro();
+				carro.setCodigo(rs.getInt("codigo"));
+				carro.setMarca(rs.getString("marca"));
+				carro.setModelo(rs.getString("modelo"));
+				carro.setValor(rs.getDouble("valor"));
+				carro.setCor(rs.getString("cor"));
+				Date data = rs.getDate("ano");
+				carro.setAno(Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
+				carro.setPlaca(rs.getString("placa"));
+				carro.setDisponivel(rs.getBoolean("disponivel"));
+				carros.add(carro);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return carros;
 
 	}
 
