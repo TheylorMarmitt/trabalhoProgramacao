@@ -140,6 +140,37 @@ public class AluguelJDBC implements AluguelDAO {
 
 	}
 
+	@Override
+	public List<Aluguel> alugueisEmAndamento() {
+		List<Aluguel> alugueis = new ArrayList<>();
+		try {
+			Statement statement = ConexaoUtil.getConn().createStatement();
+			ResultSet rs = statement.executeQuery("select * from alugueis_em_andamento");
+			while (rs.next()) {
+				Aluguel aluguel = new Aluguel();
+				aluguel.setCodigo(rs.getInt("codigo"));
+				
+				aluguel.getCarro().setPlaca(rs.getString("placa"));;
+				
+				Date data = rs.getDate("dataAluguel");
+				aluguel.setDataAluguel(
+						Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
+				
+				aluguel.getTipoAluguel().setDescricao(rs.getString("descricao"));
+				aluguel.getCliente().setNome(rs.getString("nome"));
+				aluguel.setQuilometrosSaida(rs.getDouble("quilometrosSaida"));
+				
+				alugueis.add(aluguel);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return alugueis;
+
+	}
+	
+	
+
 //	public TipoAluguel buscarTipoAluguel(Integer codigo) {
 //		TipoAluguel tipoAluguel = null;
 //		try {

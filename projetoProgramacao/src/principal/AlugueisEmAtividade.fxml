@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="principal.AlugueisEmAtividadeController">
+   <children>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <TextField fx:id="tfPlaca" layoutX="147.0" layoutY="44.0" prefHeight="27.0" prefWidth="196.0" />
+            <Label layoutX="40.0" layoutY="49.0" text="Placa do veiculo" />
+            <Button fx:id="tbnBuscar" layoutX="343.0" layoutY="44.0" mnemonicParsing="false" onAction="#buscar" text="Buscar" />
+            <TableView fx:id="tblAlugueis" layoutX="23.0" layoutY="89.0" prefHeight="484.0" prefWidth="751.0">
+              <columns>
+                <TableColumn fx:id="tbcCodigo" prefWidth="61.042545318603516" text="código" />
+                <TableColumn fx:id="tbcPlaca" prefWidth="149.8794708251953" text="Placa do carro" />
+                  <TableColumn fx:id="tbcData" minWidth="0.0" prefWidth="141.1205596923828" text="data do aluguel" />
+                  <TableColumn fx:id="tbcTipo" prefWidth="149.77304077148438" text="tipo do aluguel" />
+                  <TableColumn fx:id="tbcCliente" minWidth="0.0" prefWidth="126.2269287109375" text="cliente" />
+                  <TableColumn fx:id="tbcSaida" minWidth="0.0" prefWidth="127.411376953125" text="km saida" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

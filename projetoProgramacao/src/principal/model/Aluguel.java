@@ -12,7 +12,7 @@ public class Aluguel {
 	private Funcionario funcionario;
 	private TipoAluguel tipoAluguel;
 	private Cliente cliente;
-
+	
 	public boolean confirmaAluguel() {
 		if(this.carro.isDisponivel()) {
 			this.carro.setDisponivel(false);
