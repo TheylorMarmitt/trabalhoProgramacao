@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
@@ -78,7 +79,8 @@ public class FuncionarioJDBC implements FuncionarioDAO {
 		List<Funcionario> funcionarios = new ArrayList<>();
 		try {
 			Statement statement = ConexaoUtil.getConn().createStatement();
-			ResultSet rs = statement.executeQuery("select * from Funcionario");
+			ResultSet rs = statement.executeQuery("select * from Funcionario f join ControleFuncionarios cf on f.codigo = cf.codFuncionario " + 
+					"where cf.dataDemissao = null;");
 			while (rs.next()) {
 				Funcionario funcionario = new Funcionario();
 				funcionario.setCodigo(rs.getInt("codigo"));
@@ -105,7 +107,8 @@ public class FuncionarioJDBC implements FuncionarioDAO {
 	public Funcionario buscar(Integer codigo) {
 		Funcionario funcionario = null;
 		try {
-			String sql = "select * from Funcionario where codigo = ?";
+			String sql = "select * from Funcionario f join ControleFuncionarios cf on f.codigo = cf.codFuncionario " + 
+					"where cf.dataDemissao = null and codigo = ?;";
 			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
 			ps.setInt(1, codigo);
 			ResultSet rs1 = ps.executeQuery();
@@ -129,6 +132,20 @@ public class FuncionarioJDBC implements FuncionarioDAO {
 			e.printStackTrace();
 		}
 		return funcionario;
+		
+	}
+
+	@Override
+	public void demitirFuncionario(Funcionario dado) {
+		try {
+			String sql = "update ControleFuncionarios set dataDemissao = ? where codFuncionario = ?";
+			PreparedStatement statement = ConexaoUtil.getConn().prepareStatement(sql);
+			statement.setDate(1, Date.valueOf(LocalDate.now()));
+			statement.setInt(2, dado.getCodigo());
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
