@@ -1,25 +1,64 @@
 package principal;
 	
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
  
 public class Main extends Application {
+	
+	private static Stage stage;
+	
+	/**
+	 * Scenes criados como estaticos e privados 
+	 * para carregados no star
+	 */
+	private static Scene loginScene;
+	private static Scene menuScene;
+	
 	@Override
-	public void start(Stage primaryStage) {
-		try {
-			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,400,400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+	public void start(Stage primaryStage) throws Exception{
+		stage = primaryStage;
+		
+		primaryStage.setTitle("ExemploLogin");
+		
+		/**
+		 * carrega a tela de login puxando o fxml 
+		 */
+		BorderPane fxmlLogin = (BorderPane)FXMLLoader.load(getClass().getResource("Login.fxml"));
+		loginScene = new Scene(fxmlLogin, 800,600);
+		loginScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		
+		/**
+		 * carrega a de menu puxando o fxml
+		 * acessada apos login 
+		 */
+		BorderPane fxmlMenu = (BorderPane)FXMLLoader.load(getClass().getResource("Menu.fxml"));
+		menuScene = new Scene(fxmlMenu, 800,600);
+		menuScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		
+		primaryStage.setScene(loginScene);
+		primaryStage.show();
 	}
 	
+	/**
+	 * metodo que muda a screen recebendo um tipo de tela
+	 * retorna uma scene previamente carregada
+	 * @param tipo
+	 */
+	public static void changeScreen(TipoTela tipo) {
+		switch (tipo) {
+		case LOGIN:
+			stage.setScene(loginScene);
+			break;
+		case MENU:
+			stage.setScene(menuScene);
+			break;
+		}
+	}
+			
 	public static void main(String[] args) {
 		System.setProperty("tipoPersistencia", 
 				TipoPersistencia.BANCO.name());
