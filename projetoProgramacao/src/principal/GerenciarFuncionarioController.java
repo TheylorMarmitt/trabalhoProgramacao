@@ -114,6 +114,7 @@ public class GerenciarFuncionarioController {
 		funcionario.setDataNascimento(dtpDataNasc.getValue());
 	}
 
+	
 	@FXML
 	void atualizar(ActionEvent event) {
 		populaFuncionario();
