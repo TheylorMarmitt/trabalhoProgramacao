@@ -75,7 +75,8 @@ public class CarroJDBC implements CarroDAO{
 		List<Carro> carros = new ArrayList<>();
 		try {
 			Statement statement = ConexaoUtil.getConn().createStatement();
-			ResultSet rs = statement.executeQuery("select * from carro");
+			ResultSet rs = statement.executeQuery("select * from Carro c join AquisicaoVeiculo a on c.codigo = a.codCarro"
+					+ " where a.dataDesapropriacao = null;");
 			while (rs.next()) {
 				Carro carro = new Carro();
 				carro.setCodigo(rs.getInt("codigo"));
@@ -102,7 +103,8 @@ public class CarroJDBC implements CarroDAO{
 	public Carro buscar(Integer codigo) {
 		Carro carro = null;
 		try {
-			String sql = "select * from Carro where codigo = ?";
+			String sql = "select * from Carro c join AquisicaoVeiculo a on c.codigo = a.codCarro "
+					+ "where a.dataDesapropriacao = null and codigo = ?;";
 			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
 			ps.setInt(1, codigo);
 			ResultSet rs1 = ps.executeQuery();
