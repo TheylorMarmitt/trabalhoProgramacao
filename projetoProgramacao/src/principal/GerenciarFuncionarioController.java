@@ -118,7 +118,10 @@ public class GerenciarFuncionarioController {
 	@FXML
 	void atualizar(ActionEvent event) {
 		populaFuncionario();
-		funcionarioDao.alterar(funcionario);
+		AlertaFactory alerta = new AlertaFactory();
+		if(alerta.confirmaAceitar()) {
+			funcionarioDao.alterar(funcionario);			
+		}
 	}
 
 	@FXML
@@ -128,8 +131,11 @@ public class GerenciarFuncionarioController {
 
 	@FXML
 	void demitir(ActionEvent event) {
+		AlertaFactory alerta = new AlertaFactory();
 		populaFuncionario();
-		funcionarioDao.demitirFuncionario(funcionario);
+		if(alerta.confirmaExclusao()) {
+			funcionarioDao.demitirFuncionario(funcionario);
+		}
 	}
 
 	private ObservableList<Funcionario> atualizaTabela() {
