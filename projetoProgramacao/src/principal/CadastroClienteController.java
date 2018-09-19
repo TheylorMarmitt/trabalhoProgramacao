@@ -58,6 +58,7 @@ public class CadastroClienteController {
     
     @FXML
     void cadastrar(ActionEvent event) {
+    	populaCliente();
     	AlertaFactory alerta = new AlertaFactory();
     	if(alerta.confirmaAceitar()) {
     		clienteDao.inserir(cliente);
@@ -66,6 +67,10 @@ public class CadastroClienteController {
 
     @FXML
     void novo(ActionEvent event) {
+    	novoCliente();
+    }
+
+    void novoCliente() {
     	cliente = new Cliente();
     	tfNome.clear();
     	tfSobrenome.clear();
@@ -75,5 +80,5 @@ public class CadastroClienteController {
     	tfCpf.clear();
     	tfTelefone.clear();
     }
-
+    
 }
