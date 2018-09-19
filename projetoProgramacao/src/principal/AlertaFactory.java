@@ -41,7 +41,7 @@ public class AlertaFactory {
 	 */
 	public boolean mensagemDeAlerta(String tipoDeInconsistencia) {
 		Alerta alerta = new Alerta(); 
-		Optional<ButtonType> result = alerta.criarAlert_UmBotao("Erro de " + tipoDeInconsistencia, ButtonType.OK).showAndWait();		
+		Optional<ButtonType> result = alerta.criarAlert_UmBotao("ERRO: " + tipoDeInconsistencia, ButtonType.OK).showAndWait();		
 		alerta.tipoBotaoAceita(ButtonType.OK, "sim");
 		return ButtonType.OK.equals(result.get());
 	}
