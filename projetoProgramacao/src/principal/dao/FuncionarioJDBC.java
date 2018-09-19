@@ -116,7 +116,7 @@ public class FuncionarioJDBC implements FuncionarioDAO {
 				funcionario = new Funcionario();
 				funcionario.setCodigo(rs1.getInt("codigo"));
 				funcionario.setNome(rs1.getString("nome"));
-				funcionario.setSobrenome("sobrenome");
+				funcionario.setSobrenome(rs1.getString("sobrenome"));
 				Date data = rs1.getDate("dataNascimento");
 				funcionario.setDataNascimento(
 						Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
@@ -147,6 +147,37 @@ public class FuncionarioJDBC implements FuncionarioDAO {
 			e.printStackTrace();
 		}
 		
+	}
+
+	@Override
+	public Funcionario verificaEmail(String email) {
+		Funcionario funcionario = null;
+		try {
+			String sql = "select * from Funcionario f join ControleFuncionarios cf on f.codigo = cf.codFuncionario " + 
+					"where cf.dataDemissao = null and email = ?;";
+			PreparedStatement ps = ConexaoUtil.getConn().prepareStatement(sql);
+			ps.setString(1, email);
+			ResultSet rs1 = ps.executeQuery();
+			while (rs1.next()) {
+				funcionario = new Funcionario();
+				funcionario.setCodigo(rs1.getInt("codigo"));
+				funcionario.setNome(rs1.getString("nome"));
+				funcionario.setSobrenome(rs1.getString("sobrenome"));
+				Date data = rs1.getDate("dataNascimento");
+				funcionario.setDataNascimento(
+						Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
+
+				funcionario.setTelefone(rs1.getString("telefone"));
+				funcionario.setCpf(rs1.getString("cpf"));
+				funcionario.setEmail(rs1.getString("email"));
+				funcionario.setSenha(rs1.getString("senha"));
+				funcionario.setSalario(rs1.getDouble("salario"));
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return funcionario;
 	}
 
 }
