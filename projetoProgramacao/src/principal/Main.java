@@ -13,7 +13,7 @@ public class Main extends Application {
 	
 	/**
 	 * Scenes criados como estaticos e privados 
-	 * para carregados no star
+	 * para carregados no start
 	 */
 	private static Scene loginScene;
 	private static Scene menuScene;
