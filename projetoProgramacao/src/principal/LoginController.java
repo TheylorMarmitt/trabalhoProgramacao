@@ -3,6 +3,7 @@ package principal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import principal.dao.AbstractFactory;
 import principal.dao.FuncionarioDAO;
@@ -11,14 +12,15 @@ import principal.model.Funcionario;
 public class LoginController {
 	
 
+
     @FXML
     private TextField tfEmail;
 
     @FXML
-    private TextField tfSenha;
+    private Button btnEntrar;
 
     @FXML
-    private Button btnEntrar;
+    private PasswordField pfSenha;
     
     private FuncionarioDAO funcionarioDao = AbstractFactory.get().funcionarioDao(); 
     
@@ -31,7 +33,7 @@ public class LoginController {
     	}else {
     		alerta.mensagemDeAlerta("Email não reconhecido");
     	}
-    	if(f.getEmail().equals(tfEmail.getText()) && f.getSenha().equals(tfSenha.getText())) {
+    	if(f.getEmail().equals(tfEmail.getText()) && f.getSenha().equals(pfSenha.getText())) {
     		Main.changeScreen(TipoTela.MENU);
     	}else {
     		alerta.mensagemDeAlerta("Senha incompatível");
