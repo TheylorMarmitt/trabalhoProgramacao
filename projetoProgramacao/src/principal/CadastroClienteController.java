@@ -59,10 +59,10 @@ public class CadastroClienteController {
     @FXML
     void cadastrar(ActionEvent event) {
     	populaCliente();
-    	AlertaFactory alerta = new AlertaFactory();
-    	if(alerta.confirmaAceitar()) {
-    		clienteDao.inserir(cliente);
-    	}
+		AlertaFactory alerta = new AlertaFactory();
+		if (alerta.confirmaAceitar()) {
+			clienteDao.inserir(cliente);
+		}
     }
 
     @FXML
