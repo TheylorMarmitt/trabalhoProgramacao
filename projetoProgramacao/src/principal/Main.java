@@ -2,9 +2,10 @@ package principal;
 	
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 
 public class Main extends Application {
@@ -13,7 +14,7 @@ public class Main extends Application {
 	
 	/**
 	 * Scenes criados como estaticos e privados 
-	 * para carregados no star
+	 * para carregados no start
 	 */
 	private static Scene loginScene;
 	private static Scene menuScene;
@@ -27,7 +28,7 @@ public class Main extends Application {
 		/**
 		 * carrega a tela de login puxando o fxml 
 		 */
-		BorderPane fxmlLogin = (BorderPane)FXMLLoader.load(getClass().getResource("Login.fxml"));
+		AnchorPane fxmlLogin = (AnchorPane)FXMLLoader.load(getClass().getResource("Login.fxml"));
 		loginScene = new Scene(fxmlLogin, 800,600);
 		loginScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		
