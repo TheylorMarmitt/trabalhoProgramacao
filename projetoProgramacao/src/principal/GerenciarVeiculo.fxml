@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="principal.GerenciarVeiculoController">
+   <children>
+      <Pane prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <Label layoutX="525.0" layoutY="330.0" text="Ano" />
+            <CheckBox fx:id="ckbDisponivel" layoutX="583.0" layoutY="384.0" mnemonicParsing="false" text="Disponibilidade" />
+            <Button fx:id="btnDesapropriar" layoutX="673.0" layoutY="511.0" mnemonicParsing="false" onAction="#desapropriar" text="Desapropriar" />
+         </children>
+      </Pane>
+      <Label layoutX="516.0" layoutY="46.0" prefHeight="35.0" prefWidth="252.0" text="Gerenciar Veiculos">
+         <font>
+            <Font name="Comic Sans MS" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="54.0" layoutY="69.0" text="Placa" />
+      <TextField fx:id="tfBuscar" layoutX="99.0" layoutY="64.0" />
+      <Button fx:id="btnBuscar" layoutX="266.0" layoutY="64.0" mnemonicParsing="false" onAction="#buscar" text="Buscar" />
+      <TableView fx:id="tblVeiculos" layoutX="35.0" layoutY="110.0" onMouseClicked="#selecionaCarro" prefHeight="197.0" prefWidth="738.0">
+         <columns>
+            <TableColumn fx:id="tbcPlaca" prefWidth="118.0" text="Placa" />
+            <TableColumn fx:id="tbcMarca" prefWidth="159.0" text="Marca" />
+            <TableColumn fx:id="tbcModelo" prefWidth="156.0" text="Modelo" />
+            <TableColumn fx:id="tbcValor" minWidth="0.0" prefWidth="136.0" text="Valor" />
+            <TableColumn fx:id="tbcDisponibilidade" minWidth="0.0" prefWidth="168.0" text="Disponibilidade" />
+         </columns>
+      </TableView>
+      <Label layoutX="41.0" layoutY="330.0" text="Marca" />
+      <Label layoutX="40.0" layoutY="366.0" text="Modelo" />
+      <Label layoutX="40.0" layoutY="404.0" text="Cor" />
+      <Label layoutX="40.0" layoutY="438.0" text="Placa" />
+      <Label layoutX="40.0" layoutY="473.0" text="Valor" />
+      <Button fx:id="btnSalvar" layoutX="581.0" layoutY="511.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />
+      <TextField fx:id="tfMarca" layoutX="110.0" layoutY="324.0" prefHeight="27.0" prefWidth="201.0" />
+      <TextField fx:id="tfModelo" layoutX="110.0" layoutY="361.0" prefHeight="27.0" prefWidth="201.0" />
+      <TextField fx:id="tfCor" layoutX="110.0" layoutY="399.0" prefHeight="27.0" prefWidth="201.0" />
+      <TextField fx:id="tfPlaca" layoutX="110.0" layoutY="433.0" prefHeight="27.0" prefWidth="201.0" />
+      <TextField fx:id="tfValor" layoutX="110.0" layoutY="468.0" prefHeight="27.0" prefWidth="201.0" />
+      <DatePicker fx:id="dtpAno" layoutX="579.0" layoutY="324.0" />
+   </children>
+</AnchorPane>

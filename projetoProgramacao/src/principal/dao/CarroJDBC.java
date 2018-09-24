@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
@@ -155,6 +156,20 @@ public class CarroJDBC implements CarroDAO{
 		}
 		return carros;
 
+	}
+
+	@Override
+	public void desapropriar(Carro dado) {
+		try {
+			String sql = "update AquisicaoVeiculos set dataDesapropriacao = ? where codCarro = ?";
+			PreparedStatement statement = ConexaoUtil.getConn().prepareStatement(sql);
+			statement.setDate(1, Date.valueOf(LocalDate.now()));
+			statement.setInt(2, dado.getCodigo());
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }

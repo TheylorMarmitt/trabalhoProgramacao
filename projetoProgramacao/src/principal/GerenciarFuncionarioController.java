@@ -92,7 +92,6 @@ public class GerenciarFuncionarioController {
 	}
 
 	public void populaTela(Funcionario func) {
-		tbcCodigo.setText(func.getCodigo().toString());
 		tfNome.setText(func.getNome());
 		tfSobrenome.setText(func.getSobrenome());
 		tfTelefone.setText(func.getTelefone());
