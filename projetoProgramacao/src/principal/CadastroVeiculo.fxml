@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="principal.CadastroCarroController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="principal.CadastroVeiculoController">
    <children>
       <Pane prefHeight="600.0" prefWidth="800.0">
          <children>
