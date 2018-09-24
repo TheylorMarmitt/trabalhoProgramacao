@@ -28,7 +28,6 @@ public class CadastroFilialController {
 		filial.setNome(tfNome.getText());
 		filial.setCidade(tfCidade.getText());
 		filial.setUf(tfUf.getText());
-		System.out.println(filial.toString());
 	}
 
 	void novaFilial() {
