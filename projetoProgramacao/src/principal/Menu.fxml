@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.MenuController">
+   <children>
+      <Pane prefHeight="489.0" prefWidth="519.0">
+         <children>
+            <MenuBar prefHeight="25.0" prefWidth="519.0">
+              <menus>
+                <Menu fx:id="mniCadastroFilial" mnemonicParsing="false" text="Cadastro">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#abreTelaCadastroFilial" text="Cadastro Filial" />
+                        <MenuItem mnemonicParsing="false" onAction="#abreTelaCadastroVeiculo" text="Cadastro Veículo" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
