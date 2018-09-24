@@ -9,7 +9,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import principal.dao.AbstractFactory;
 import principal.dao.CarroDAO;
-import principal.dao.CarroJDBC;
 import principal.model.Carro;
 import principal.model.Filial;
 
@@ -46,7 +45,7 @@ public class CadastroVeiculoController {
 	    private Button btnNovo;
 	    
 	    
-	    private Carro carro = new Carro();
+	    private Carro carro;
 	    private CarroDAO carroDao = AbstractFactory.get().carroDao();
 	    
 	    @FXML
@@ -65,6 +64,7 @@ public class CadastroVeiculoController {
 	    *popula carro com as entradas do usuario
 	    */
 	    public void populaCarro() {
+	    	carro = new Carro();
 			carro.setAno(dtAno.getValue());
 			carro.setCor(tfCor.getText());
 			carro.setDisponivel(cbDisponivel.isArmed());
