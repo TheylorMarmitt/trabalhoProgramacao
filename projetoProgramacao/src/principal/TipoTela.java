@@ -7,6 +7,6 @@ package principal;
  */
 public enum TipoTela {
 
-	LOGIN, MENU;
+	LOGIN, MENU, CADASTROVEICULO, CADASTROFILIAL;
 
 }

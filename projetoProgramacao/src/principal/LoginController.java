@@ -26,18 +26,18 @@ public class LoginController {
     
     @FXML
     void entrar(ActionEvent event) {
-    	Funcionario f = new Funcionario();
-    	AlertaFactory alerta = new AlertaFactory();
-    	if(funcionarioDao.verificaEmail(tfEmail.getText()) != null) {
-    		f = funcionarioDao.verificaEmail(tfEmail.getText());    		
-    	}else {
-    		alerta.mensagemDeAlerta("Email não reconhecido");
-    	}
-    	if(f.getEmail().equals(tfEmail.getText()) && f.getSenha().equals(pfSenha.getText())) {
+//    	Funcionario f = new Funcionario();
+//    	AlertaFactory alerta = new AlertaFactory();
+//    	if(funcionarioDao.verificaEmail(tfEmail.getText()) != null) {
+//    		f = funcionarioDao.verificaEmail(tfEmail.getText());    		
+//    	}else {
+//    		alerta.mensagemDeAlerta("Email não reconhecido");
+//    	}
+//    	if(f.getEmail().equals(tfEmail.getText()) && f.getSenha().equals(pfSenha.getText())) {
     		Main.changeScreen(TipoTela.MENU);
-    	}else {
-    		alerta.mensagemDeAlerta("Senha incompatível");
-    	}
+//    	}else {
+//    		alerta.mensagemDeAlerta("Senha incompatível");
+//    	}
     }
 
 }
