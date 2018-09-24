@@ -86,7 +86,7 @@ public class GerenciarFuncionarioController {
 	@FXML
 	void selecionaFuncionario(MouseEvent event) {
 		if (tblFuncionarios.getSelectionModel().getSelectedItem() != null) {
-			funcionario = tblFuncionarios.getSelectionModel().getSelectedItem();
+			funcionario = tblFuncionarios.getSelectionModel().getSelectedItem();			
 			populaTela(funcionario);
 		}
 	}
