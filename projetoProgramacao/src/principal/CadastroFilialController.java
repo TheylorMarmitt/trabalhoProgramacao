@@ -24,9 +24,11 @@ public class CadastroFilialController {
 	private FilialDAO filialDao = AbstractFactory.get().filialDao();
 
 	void populaFilial() {
+		filial = new Filial();
 		filial.setNome(tfNome.getText());
 		filial.setCidade(tfCidade.getText());
 		filial.setUf(tfUf.getText());
+		System.out.println(filial.toString());
 	}
 
 	void novaFilial() {
