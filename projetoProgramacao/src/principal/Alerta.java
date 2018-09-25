@@ -11,7 +11,8 @@ public class Alerta {
 	 */
 	private Alert alerta;
 
-	/**
+	/** 
+	 * 
 	 * Cria um alert com 2 botoes e uma mensagem 
 	 * Para dar uma opção de ao usuario
 	 * 
