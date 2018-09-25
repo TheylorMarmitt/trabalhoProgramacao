@@ -13,9 +13,17 @@
                <items>
               <MenuItem mnemonicParsing="false" onAction="#abreTelaCadastroFilial" text="Cadastro Filial" />
                   <MenuItem mnemonicParsing="false" onAction="#abreTelaCadastroVeiculo" text="Cadastro Veículo" />
+                  <MenuItem mnemonicParsing="false" onAction="#abreTelaCadastroFuncionario" text="Cadastro Funcionario" />
+                  <MenuItem mnemonicParsing="false" onAction="#abreTelaCadastroCliente" text="Cadastro Cliente" />
+                  <MenuItem mnemonicParsing="false" onAction="#abreTelaCadastroAluguel" text="Cadastro Aluguel" />
                </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Gerenciar" />
+          <Menu mnemonicParsing="false" text="Gerenciar">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#abreTelaGerenciarAluguel" text="Gerenciar Tipo Aluguel" />
+                  <MenuItem mnemonicParsing="false" onAction="#abreTelaGerenciarFuncionario" text="Gerenciar Funcionario" />
+                  <MenuItem mnemonicParsing="false" onAction="#abreTelaGerenciarVeiculo" text="Gerenciar Veiculo" />
+               </items></Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />

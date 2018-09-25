@@ -41,35 +41,81 @@ public class MenuController {
 			e1.printStackTrace();
 		}
 
+	}@FXML
+	void abreTelaCadastroAluguel(ActionEvent event) {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("CadastroAluguel.fxml"));
+		try {
+			AnchorPane cursoView = (AnchorPane) loader.load();
+			bpPrincipal.setCenter(cursoView);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+
 	}
+	@FXML
+	void abreTelaCadastroCliente(ActionEvent event) {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("CadastroCliente.fxml"));
+		try {
+			AnchorPane cursoView = (AnchorPane) loader.load();
+			bpPrincipal.setCenter(cursoView);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+
+	}
+	@FXML
+	void abreTelaCadastroFuncionario(ActionEvent event) {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("CadastroFuncionario.fxml"));
+		try {
+			AnchorPane cursoView = (AnchorPane) loader.load();
+			bpPrincipal.setCenter(cursoView);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+
+	}
+	
+	
+	/* Aba gerenciar */
+	@FXML
+	void abreTelaGerenciarFuncionario(ActionEvent event) {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("GerenciarFuncionario.fxml"));
+		try {
+			AnchorPane cursoView = (AnchorPane) loader.load();
+			bpPrincipal.setCenter(cursoView);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+
+	}
+	@FXML
+	void abreTelaGerenciarVeiculo(ActionEvent event) {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("GerenciarVeiculo.fxml"));
+		try {
+			AnchorPane cursoView = (AnchorPane) loader.load();
+			bpPrincipal.setCenter(cursoView);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+
+	}
+	@FXML
+	void abreTelaGerenciarAluguel(ActionEvent event) {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("GerenciarTipoAluguel.fxml"));
+		try {
+			AnchorPane cursoView = (AnchorPane) loader.load();
+			bpPrincipal.setCenter(cursoView);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+
+	}
+	
+	
 }
-/*
- * package principal;
- * 
- * import java.io.IOException;
- * 
- * import javafx.event.ActionEvent; import javafx.fxml.FXML; import
- * javafx.fxml.FXMLLoader; import javafx.scene.control.MenuItem; import
- * javafx.scene.layout.AnchorPane; import javafx.scene.layout.BorderPane;
- * 
- * public class MenuController {
- * 
- * @FXML private MenuItem mmiCurso;
- * 
- * @FXML private MenuItem mmiArea;
- * 
- * 
- * @FXML private BorderPane bpPrincipal;
- * 
- * @FXML void menuCurso(ActionEvent event) { FXMLLoader loader = new
- * FXMLLoader(); loader.setLocation(getClass().getResource("cursoForm.fxml"));
- * try { AnchorPane cursoView = (AnchorPane) loader.load();
- * bpPrincipal.setCenter(cursoView); } catch (IOException e1) {
- * e1.printStackTrace(); } }
- * 
- * @FXML void menuArea(ActionEvent event) { FXMLLoader loader = new
- * FXMLLoader(); loader.setLocation(getClass().getResource("areaForm.fxml"));
- * try { AnchorPane cursoView = (AnchorPane) loader.load();
- * bpPrincipal.setCenter(cursoView); } catch (IOException e1) {
- * e1.printStackTrace(); } } }
- */
