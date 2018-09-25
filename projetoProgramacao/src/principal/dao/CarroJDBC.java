@@ -18,10 +18,10 @@ public class CarroJDBC implements CarroDAO{
 	@Override
 	public void inserir(Carro dado) {
 		try {
-			String sql = "insert into Carro(marca, modelo, valor, cor, ano, placa, diponivel) values (?,?,?,?,?,?,?)";
+			String sql = "insert into Carro(marca, modelo, valor, cor, ano, placa, disponivel) values (?,?,?,?,?,?,?)";
 			PreparedStatement statement = ConexaoUtil.getConn().prepareStatement(sql);
 			statement.setString(1, dado.getMarca());
-			statement.setString(3, dado.getModelo());
+			statement.setString(2, dado.getModelo());
 			statement.setDouble(3, dado.getValor());
 			statement.setString(4, dado.getCor());
 			statement.setDate(5, Date.valueOf(dado.getAno()));
