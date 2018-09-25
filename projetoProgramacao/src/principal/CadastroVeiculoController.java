@@ -72,7 +72,6 @@ public class CadastroVeiculoController {
 			carro.setModelo(tfModelo.getText());
 			carro.setPlaca(tfPlaca.getText());
 			carro.setValor(Double.valueOf(tfValor.getText()));
-			System.out.println(carro.toString());
 		}
 	    public void novoCarro() {
 	    	carro = new Carro();
