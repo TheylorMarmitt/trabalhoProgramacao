@@ -64,6 +64,8 @@ public class CadastroFuncionarioController {
 		}
 	    
 	    void populaFuncionario() {
+
+	    	funcionario = new Funcionario();
 	    	funcionario.setNome(tfNome.getText());
 	    	funcionario.setSobrenome(tfSobrenome.getText());
 	    	funcionario.setDataNascimento(dtNascimento.getValue());
