@@ -16,8 +16,6 @@ public class Main extends Application {
 	 */
 	private static Scene loginScene;
 	private static Scene menuScene;
-	private static Scene cadastroVeiculoScene;
-	private static Scene cadastroFilialScene;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -35,20 +33,9 @@ public class Main extends Application {
 		/**
 		 * carrega a tela de menu puxando o fxml acessada apos login
 		 */
-		AnchorPane fxmlMenu = (AnchorPane) FXMLLoader.load(getClass().getResource("Menu.fxml"));
+		BorderPane fxmlMenu = (BorderPane) FXMLLoader.load(getClass().getResource("Menu.fxml"));
 		menuScene = new Scene(fxmlMenu, 800, 600);
 		menuScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-		/**
-		 * carrega a tela de cadastro de veiculo puxando o fxml acessada apos login
-		 */
-
-		AnchorPane fxmlCadastroVeiculo = (AnchorPane) FXMLLoader.load(getClass().getResource("CadastroVeiculo.fxml"));
-		cadastroVeiculoScene = new Scene(fxmlCadastroVeiculo, 800, 600);
-		cadastroVeiculoScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-		
-		AnchorPane fxmlCadastroFilial = (AnchorPane) FXMLLoader.load(getClass().getResource("CadastroFilial.fxml"));
-		cadastroFilialScene = new Scene(fxmlCadastroFilial, 800, 600);
-		cadastroFilialScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
 
 		primaryStage.setScene(loginScene);
@@ -68,12 +55,6 @@ public class Main extends Application {
 			break;
 		case MENU:
 			stage.setScene(menuScene);
-			break;
-		case CADASTROVEICULO:
-			stage.setScene(cadastroVeiculoScene);
-			break;
-		case CADASTROFILIAL:
-			stage.setScene(cadastroFilialScene);
 			break;
 		}
 	}
