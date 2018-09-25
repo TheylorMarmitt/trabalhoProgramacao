@@ -14,6 +14,7 @@ import principal.dao.TipoAluguelDAO;
 import principal.model.Carro;
 import principal.model.Cliente;
 import principal.model.Filial;
+import principal.model.Funcionario;
 import principal.model.TipoAluguel;
 
 public class CadastroAluguelController {
@@ -32,6 +33,9 @@ public class CadastroAluguelController {
 
     @FXML
     private ComboBox<Cliente> cbCliente;
+    
+    @FXML
+    private ComboBox<Funcionario> cbFuncionario;
 
     @FXML
     private ComboBox<Filial> cbFilial;
@@ -39,6 +43,20 @@ public class CadastroAluguelController {
     @FXML
     private Button btnBuscarCarro;
 
+    @FXML
+    private Button btnBuscarCliente;
+
+    @FXML
+    private Button btnBuscarTipoAluguel;
+
+    @FXML
+    private Button btnBuscarFilial;
+
+    @FXML
+    private Button btnBuscarFuncioanario;
+    
+    @FXML
+    private Button btnRealizarAluguel;
 
     private TipoAluguelDAO tipoDao = AbstractFactory.get().tipoAluguelDao();
     private CarroDAO carroDao = AbstractFactory.get().carroDao();
@@ -56,6 +74,36 @@ public class CadastroAluguelController {
     	}
     }
     
+    @FXML
+    void buscarCliente(ActionEvent event) {
+    	Stage stageDono = (Stage)btnBuscarCliente.getScene().getWindow();
+    	ClienteDialogFabrica clienteDialog = new ClienteDialogFabrica(stageDono);
+    	Cliente cliente = clienteDialog.showDialog();
+    	if(cliente != null) {
+    		populaComboCliente();
+    		cbCliente.setValue(cliente);
+    	}
+    }
+
+    @FXML
+    void buscarFilial(ActionEvent event) {
+
+    }
+
+    @FXML
+    void buscarFuncionario(ActionEvent event) {
+
+    }
+
+    @FXML
+    void buscarTipoAluguel(ActionEvent event) {
+
+    }
+
+    @FXML
+    void realizarAluguel(ActionEvent event) {
+
+    }
     
     /**
      * metodos de popular comboboxes
