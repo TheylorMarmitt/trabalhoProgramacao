@@ -36,7 +36,7 @@ public class CadastroVeiculoController {
 	    private TextField tfPlaca;
 
 	    @FXML
-	    private CheckBox cbDisponivel;
+	    private CheckBox cbkDisponivel;
 
 	    @FXML
 	    private Button btnCadastrar;
@@ -65,22 +65,24 @@ public class CadastroVeiculoController {
 	    */
 	    public void populaCarro() {
 	    	carro = new Carro();
-			carro.setAno(dtAno.getValue());
+	    	carro.setAno(dtAno.getValue());
 			carro.setCor(tfCor.getText());
-			carro.setDisponivel(cbDisponivel.isArmed());
+			carro.setDisponivel(cbkDisponivel.isSelected());
 			carro.setMarca(tfMarca.getText());
 			carro.setModelo(tfModelo.getText());
 			carro.setPlaca(tfPlaca.getText());
 			carro.setValor(Double.valueOf(tfValor.getText()));
+			System.out.println(carro.toString());
 		}
 	    public void novoCarro() {
+	    	carro = new Carro();
 	    	tfCor.clear();
 	    	tfMarca.clear();
 	    	tfModelo.clear();
 	    	tfPlaca.clear();
 	    	tfValor.clear();
-	    	if(cbDisponivel.isSelected()) {
-	    		cbDisponivel.setSelected(false);;
+	    	if(cbkDisponivel.isSelected()) {
+	    		cbkDisponivel.setSelected(false);;
 	    	}
 	    }
 
