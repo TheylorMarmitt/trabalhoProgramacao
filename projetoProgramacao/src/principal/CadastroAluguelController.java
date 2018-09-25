@@ -10,6 +10,7 @@ import principal.dao.AbstractFactory;
 import principal.dao.CarroDAO;
 import principal.dao.ClienteDAO;
 import principal.dao.FilialDAO;
+import principal.dao.FuncionarioDAO;
 import principal.dao.TipoAluguelDAO;
 import principal.model.Carro;
 import principal.model.Cliente;
@@ -62,6 +63,7 @@ public class CadastroAluguelController {
     private CarroDAO carroDao = AbstractFactory.get().carroDao();
     private ClienteDAO clienteDao = AbstractFactory.get().clienteDao();
     private FilialDAO filialDao = AbstractFactory.get().filialDao();
+    private FuncionarioDAO funcionarioDao = AbstractFactory.get().funcionarioDao();
     
     @FXML
     void buscarCarro(ActionEvent event) {
@@ -87,7 +89,13 @@ public class CadastroAluguelController {
 
     @FXML
     void buscarFilial(ActionEvent event) {
-
+    	Stage stageDono = (Stage)btnBuscarFilial.getScene().getWindow();
+    	FilialDialogFabrica filialDialog = new FilialDialogFabrica(stageDono);
+    	Filial filial = filialDialog.showDialog();
+    	if(filial != null) {
+    		populaComboFilial();
+    		cbFilial.setValue(filial);
+    	}
     }
 
     @FXML
@@ -136,5 +144,10 @@ public class CadastroAluguelController {
 		}
 	}
     
-    
+    private void populaComboFuncionario(){
+    	cbFuncionario.getSelectionModel().clearSelection();
+		for(Funcionario funcionario: funcionarioDao.listar()){
+			cbFuncionario.getItems().add(funcionario);
+		}
+	}
 }
