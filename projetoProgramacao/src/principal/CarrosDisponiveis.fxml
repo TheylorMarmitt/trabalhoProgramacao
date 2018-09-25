@@ -13,7 +13,7 @@
    <children>
       <Pane layoutY="100.0" prefHeight="500.0" prefWidth="800.0">
          <children>
-            <TableView fx:id="tblCarros" layoutX="20.0" prefHeight="485.0" prefWidth="760.0">
+            <TableView fx:id="tblCarros" layoutX="20.0" onMouseClicked="#selecionaCarro" prefHeight="485.0" prefWidth="760.0">
                <columns>
                   <TableColumn fx:id="tbcPlaca" prefWidth="61.042545318603516" text="Placa" />
                   <TableColumn fx:id="tbcMarca" prefWidth="149.8794708251953" text="Marca" />

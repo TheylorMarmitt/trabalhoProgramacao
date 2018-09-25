@@ -9,6 +9,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import principal.dao.AbstractFactory;
 import principal.dao.CarroDAO;
 import principal.model.Carro;
@@ -44,6 +46,10 @@ public class CarrosDisponiveisController {
     
     private ObservableList<Carro> carros = FXCollections.observableArrayList();
     
+    private Stage dialogStage;
+    
+    private Carro carro;
+    
     @FXML
 	private void initialize() {
 		tbcPlaca.setCellValueFactory(new PropertyValueFactory<>("placa"));
@@ -75,6 +81,24 @@ public class CarrosDisponiveisController {
 			}
 		}
 		return carroPesquisa;
+	}
+    
+    @FXML
+    void selecionaCarro(MouseEvent event) {
+    	if (tblCarros.getSelectionModel().getSelectedItem() != null) {
+			carro = tblCarros.getSelectionModel().getSelectedItem();
+		}
+		if(event.getClickCount() > 1) {
+			dialogStage.close();
+		}
+    }
+    
+    public void setStageDialog(Stage dialogStage) {
+		this.dialogStage = dialogStage;
+	}
+    
+	public Carro getCarro() {
+		return this.carro;
 	}
     
 }
