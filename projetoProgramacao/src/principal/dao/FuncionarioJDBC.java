@@ -80,8 +80,9 @@ public class FuncionarioJDBC implements FuncionarioDAO {
 		List<Funcionario> funcionarios = new ArrayList<>();
 		try {
 			Statement statement = ConexaoUtil.getConn().createStatement();
-			ResultSet rs = statement.executeQuery("select * from Funcionario f join ControleFuncionarios cf on f.codigo = cf.codFuncionario " + 
-					"where cf.dataDemissao = null;");
+//			ResultSet rs = statement.executeQuery("select * from Funcionario f join ControleFuncionarios cf on f.codigo = cf.codFuncionario " + 
+//					"where cf.dataDemissao IS null;");
+			ResultSet rs = statement.executeQuery("select * from Funcionario f where f.dataDemissao IS null;");
 			while (rs.next()) {
 				Funcionario funcionario = new Funcionario();
 				funcionario.setCodigo(rs.getInt("codigo"));
