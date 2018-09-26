@@ -1,11 +1,14 @@
 package principal.model;
 
+import java.time.LocalDate;
+
 public class Funcionario extends Pessoa {
 
 	private Integer codigo;
 	private String senha;
 	private Double salario;
-
+	private LocalDate dataAdmissao;
+	private LocalDate dataDemissao;
 	public Funcionario() {
 
 	}
@@ -20,7 +23,18 @@ public class Funcionario extends Pessoa {
 	public Integer getCodigo() {
 		return codigo;
 	}
-
+	public void setDataAdmissao(LocalDate dataAdmissao) {
+		this.dataAdmissao = dataAdmissao;
+	}
+	public LocalDate getDataAdmissao() {
+		return dataAdmissao;
+	}
+	public void setDataDemissao(LocalDate dataDemissao) {
+		this.dataDemissao = dataDemissao;
+	}
+	public LocalDate getDataDemissao() {
+		return dataDemissao;
+	}
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}

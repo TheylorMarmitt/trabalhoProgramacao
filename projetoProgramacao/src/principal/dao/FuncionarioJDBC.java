@@ -19,7 +19,7 @@ public class FuncionarioJDBC implements FuncionarioDAO {
 	@Override
 	public void inserir(Funcionario dado) {
 		try {
-			String sql = "insert into Funcionario(nome, sobrenome, dataNascimento, telefone, cpf, email, senha, salario) values (?,?,?,?,?,?,?,?)";
+			String sql = "insert into Funcionario(nome, sobrenome, dataNascimento, telefone, cpf, email, senha, salario, dataAdmissao) values (?,?,?,?,?,?,?,?,?)";
 			PreparedStatement statement = ConexaoUtil.getConn().prepareStatement(sql);
 			statement.setString(1, dado.getNome());
 			statement.setString(2, dado.getSobrenome());
@@ -29,6 +29,7 @@ public class FuncionarioJDBC implements FuncionarioDAO {
 			statement.setString(6, dado.getEmail());
 			statement.setString(7, dado.getSenha());
 			statement.setDouble(8, dado.getSalario());
+			statement.setDate(9, Date.valueOf(dado.getDataAdmissao()));
 			statement.executeUpdate();
 
 

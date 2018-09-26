@@ -1,5 +1,7 @@
 package principal;
 
+import java.time.LocalDate;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -74,6 +76,7 @@ public class CadastroFuncionarioController {
 	    	funcionario.setSenha(tfSenha.getText());
 	    	funcionario.setSalario(Double.valueOf(tfSalario.getText()));
 	    	funcionario.setTelefone(tfTelefone.getText());
+	    	funcionario.setDataAdmissao(LocalDate.now());
 	    }
 	    
 	    @FXML
