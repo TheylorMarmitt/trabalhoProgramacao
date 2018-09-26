@@ -1,5 +1,7 @@
 package principal;
 
+import java.time.LocalDate;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -133,6 +135,8 @@ public class GerenciarFuncionarioController {
 		AlertaFactory alerta = new AlertaFactory();
 		populaFuncionario();
 		if(alerta.confirmaExclusao()) {
+
+			funcionario.setDataDemissao(LocalDate.now());
 			funcionarioDao.demitirFuncionario(funcionario);
 		}
 	}
