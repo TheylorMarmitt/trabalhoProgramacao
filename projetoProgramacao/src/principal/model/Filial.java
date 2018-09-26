@@ -53,7 +53,7 @@ public class Filial {
 
 	@Override
 	public String toString() {
-		return "Filial [codigo=" + codigo + ", nome=" + nome + ", cidade=" + cidade + ", uf=" + uf + "]";
+		return this.nome + " - " + this.cidade + "(" + this.uf + ")";
 	}
 
 }

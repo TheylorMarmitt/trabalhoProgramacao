@@ -53,8 +53,7 @@ public class TipoAluguel {
 
 	@Override
 	public String toString() {
-		return "TipoAluguel [codigo=" + codigo + ", descricao=" + descricao + ", valor=" + valor + ", taxa=" + taxa
-				+ "]";
+		return this.descricao + " : " + this.valor.toString();
 	}
 
 }

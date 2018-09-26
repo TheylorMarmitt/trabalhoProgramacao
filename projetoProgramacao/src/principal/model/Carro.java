@@ -95,8 +95,7 @@ public class Carro {
 
 	@Override
 	public String toString() {
-		return "Carro [codigo=" + codigo + ", marca=" + marca + ", modelo=" + modelo + ", valor=" + valor + ", cor="
-				+ cor + ", ano=" + ano + ", placa=" + placa + ", disponivel=" + disponivel + "]";
+		return this.marca + " [" + this.modelo + "]" ;
 	}
 
 }

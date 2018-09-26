@@ -43,7 +43,7 @@ public class TipoPagamento {
 
 	@Override
 	public String toString() {
-		return "TipoPagamento [codigo=" + codigo + ", descricao=" + descricao + ", desconto=" + desconto + "]";
+		return this.descricao + " : " + this.desconto.toString();
 	}
 
 }
