@@ -54,7 +54,7 @@ public class CadastroAluguelController {
     private Button btnBuscarFilial;
 
     @FXML
-    private Button btnBuscarFuncioanario;
+    private Button btnBuscarFuncionario;
     
     @FXML
     private Button btnRealizarAluguel;
@@ -89,18 +89,24 @@ public class CadastroAluguelController {
 
     @FXML
     void buscarFilial(ActionEvent event) {
-    	Stage stageDono = (Stage)btnBuscarFilial.getScene().getWindow();
-    	FilialDialogFabrica filialDialog = new FilialDialogFabrica(stageDono);
-    	Filial filial = filialDialog.showDialog();
-    	if(filial != null) {
+    	Stage stageDono = (Stage)btnBuscarFuncionario.getScene().getWindow();
+    	FuncionarioDialogFabrica funcionarioDialog = new FuncionarioDialogFabrica(stageDono);
+    	Funcionario funcionario = funcionarioDialog.showDialog();
+    	if(funcionario != null) {
     		populaComboFilial();
-    		cbFilial.setValue(filial);
+    		cbFuncionario.setValue(funcionario);
     	}
     }
 
     @FXML
     void buscarFuncionario(ActionEvent event) {
-
+    	Stage stageDono = (Stage)btnBuscarTipoAluguel.getScene().getWindow();
+    	TipoDialogFabrica tipoDialog = new TipoDialogFabrica(stageDono);
+    	TipoAluguel tipo = tipoDialog.showDialog();
+    	if(tipo != null) {
+    		populaComboFuncionario();
+    		cbTipoAluguel.setValue(tipo);
+    	}
     }
 
     @FXML
