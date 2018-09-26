@@ -105,7 +105,13 @@ public class CadastroAluguelController {
 
     @FXML
     void buscarTipoAluguel(ActionEvent event) {
-
+    	Stage stageDono = (Stage)btnBuscarTipoAluguel.getScene().getWindow();
+    	TipoDialogFabrica tipoDialog = new TipoDialogFabrica(stageDono);
+    	TipoAluguel tipo = tipoDialog.showDialog();
+    	if(tipo != null) {
+    		populaComboTipoAluguel();
+    		cbTipoAluguel.setValue(tipo);
+    	}
     }
 
     @FXML
