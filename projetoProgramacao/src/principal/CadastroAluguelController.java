@@ -7,11 +7,13 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import principal.dao.AbstractFactory;
+import principal.dao.AluguelDAO;
 import principal.dao.CarroDAO;
 import principal.dao.ClienteDAO;
 import principal.dao.FilialDAO;
 import principal.dao.FuncionarioDAO;
 import principal.dao.TipoAluguelDAO;
+import principal.model.Aluguel;
 import principal.model.Carro;
 import principal.model.Cliente;
 import principal.model.Filial;
@@ -64,6 +66,9 @@ public class CadastroAluguelController {
     private ClienteDAO clienteDao = AbstractFactory.get().clienteDao();
     private FilialDAO filialDao = AbstractFactory.get().filialDao();
     private FuncionarioDAO funcionarioDao = AbstractFactory.get().funcionarioDao();
+    private AluguelDAO aluguelDao = AbstractFactory.get().aluguelDao();
+    
+    private Aluguel aluguel;
     
     @FXML
     void buscarCarro(ActionEvent event) {
@@ -122,8 +127,54 @@ public class CadastroAluguelController {
 
     @FXML
     void realizarAluguel(ActionEvent event) {
-
+    	AlertaFactory alerta = new AlertaFactory();
+    	if(verificaAluguel() == true) {
+    		populaAluguel();
+    		if(alerta.confirmaAceitar()) {
+    			aluguelDao.inserir(aluguel);    			
+    		}
+    	}	
+	}
+    
+    private boolean verificaAluguel() {
+    	boolean verificador = true;
+    	AlertaFactory alerta = new AlertaFactory();
+    	
+    	if(dtAluguel.getValue().equals(null)) {
+    		alerta.mensagemDeAlerta("Data invalida");
+    		verificador = false;
+    	}else if(cbTipoAluguel.getValue().equals(null)) {
+    		alerta.mensagemDeAlerta("Tipo de aluguel não selecionado");
+    		verificador = false;
+    	}else if(cbCarro.getValue().equals(null)) {
+    		alerta.mensagemDeAlerta("Carro não selecionado");
+    		verificador = false;
+    	}else if(tfKmSaida.getText().equals(null)) {
+    		alerta.mensagemDeAlerta("Quilometragem de saida não informada");
+    		verificador = false;
+    	}else if(cbCliente.getValue().equals(null)) {
+    		alerta.mensagemDeAlerta("Cliente não selecionado");
+    		verificador = false;
+    	}else if(cbFuncionario.getValue().equals(null)) {
+    		alerta.mensagemDeAlerta("Funcionario não selecionado");
+    		verificador = false;
+    	}else if(cbFilial.getValue().equals(null)) {
+    		alerta.mensagemDeAlerta("Filial não selecionado");
+    		verificador = false;
+    	}
+    	return verificador;
     }
+    
+    private void populaAluguel() {
+    	aluguel.setCarro(cbCarro.getValue());
+    	aluguel.setCliente(cbCliente.getValue());
+    	aluguel.setDataAluguel(dtAluguel.getValue());
+    	aluguel.setFilial(cbFilial.getValue());
+    	aluguel.setFuncionario(cbFuncionario.getValue());
+    	aluguel.setQuilometrosSaida(Double.valueOf(tfKmSaida.getText()));
+    	aluguel.setTipoAluguel(cbTipoAluguel.getValue());
+    }
+    		
     
     /**
      * metodos de popular comboboxes
