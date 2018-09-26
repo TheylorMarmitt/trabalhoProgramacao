@@ -140,7 +140,8 @@ public class FuncionarioJDBC implements FuncionarioDAO {
 	@Override
 	public void demitirFuncionario(Funcionario dado) {
 		try {
-			String sql = "update ControleFuncionarios set dataDemissao = ? where codFuncionario = ?";
+		//	String sql = "update ControleFuncionarios set dataDemissao = ? where codFuncionario = ?";
+			String sql = "update Funcionario set dataDemissao = ? where codigo = ?";
 			PreparedStatement statement = ConexaoUtil.getConn().prepareStatement(sql);
 			statement.setDate(1, Date.valueOf(LocalDate.now()));
 			statement.setInt(2, dado.getCodigo());
