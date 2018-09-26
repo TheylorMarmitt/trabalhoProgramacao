@@ -20,7 +20,7 @@ public class FuncionarioDialogFabrica {
 	public Funcionario showDialog() {
 		Funcionario funcionario = null;
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("FuncionarioDialogController.fxml"));
+		loader.setLocation(getClass().getResource("FuncionarioDialog.fxml"));
 		try {
 			AnchorPane funcionarioDialog = (AnchorPane) loader.load();
 			Stage dialogStage = new Stage();

@@ -20,7 +20,7 @@ public class ClienteDialogFabrica {
 	public Cliente showDialog() {
 		Cliente cliente = null;
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("ClienteDialogController.fxml"));
+		loader.setLocation(getClass().getResource("ClienteDialog.fxml"));
 		try {
 			AnchorPane clienteDialog = (AnchorPane) loader.load();
 			Stage dialogStage = new Stage();
