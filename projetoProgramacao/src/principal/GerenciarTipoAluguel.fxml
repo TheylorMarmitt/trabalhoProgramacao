@@ -13,8 +13,14 @@
    <children>
       <Pane prefHeight="600.0" prefWidth="800.0">
          <children>
-            <Label layoutX="59.0" layoutY="59.0" text="Descrição" />
-            <Label layoutX="59.0" layoutY="108.0" text="Valor" />
+            <Label layoutX="59.0" layoutY="59.0" text="Descrição">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font></Label>
+            <Label layoutX="59.0" layoutY="108.0" text="Valor">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font></Label>
             <TextField fx:id="tfDescricao" layoutX="141.0" layoutY="54.0" prefHeight="27.0" prefWidth="237.0" />
             <TextField fx:id="tfValor" layoutX="141.0" layoutY="103.0" prefHeight="27.0" prefWidth="237.0" />
             <TableView fx:id="tblTipoAluguel" layoutX="22.0" layoutY="205.0" onMouseClicked="#selecionaTipoAluguel" prefHeight="283.0" prefWidth="757.0">
@@ -25,10 +31,22 @@
                   <TableColumn fx:id="tbcTaxa" prefWidth="152.0" text="Taxa" />
               </columns>
             </TableView>
-            <Button fx:id="btnNovo" layoutX="505.0" layoutY="505.0" mnemonicParsing="false" onAction="#novo" text="Novo" />
-            <Button fx:id="btnSalvar" layoutX="612.0" layoutY="505.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />
-            <Button fx:id="btnExcluir" layoutX="718.0" layoutY="505.0" mnemonicParsing="false" onAction="#excluir" text="Excluir" />
-            <Label layoutX="59.0" layoutY="153.0" text="Taxa" />
+            <Button fx:id="btnNovo" layoutX="499.0" layoutY="505.0" mnemonicParsing="false" onAction="#novo" text="Novo">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font></Button>
+            <Button fx:id="btnSalvar" layoutX="606.0" layoutY="505.0" mnemonicParsing="false" onAction="#salvar" text="Salvar">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font></Button>
+            <Button fx:id="btnExcluir" layoutX="712.0" layoutY="505.0" mnemonicParsing="false" onAction="#excluir" text="Excluir">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font></Button>
+            <Label layoutX="59.0" layoutY="153.0" text="Taxa">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font></Label>
             <TextField fx:id="tfTaxa" layoutX="141.0" layoutY="148.0" prefHeight="27.0" prefWidth="237.0" />
          </children>
       </Pane>

@@ -25,7 +25,10 @@
             </TableView>
          </children>
       </Pane>
-      <Button fx:id="tbnBuscar" layoutX="339.0" layoutY="62.0" mnemonicParsing="false" onAction="#buscar" text="Buscar" />
+      <Button fx:id="tbnBuscar" layoutX="339.0" layoutY="62.0" mnemonicParsing="false" onAction="#buscar" text="Buscar">
+         <font>
+            <Font name="Comic Sans MS" size="13.0" />
+         </font></Button>
       <TextField fx:id="tfPlaca" layoutX="149.0" layoutY="62.0" prefHeight="27.0" prefWidth="196.0" />
       <Label layoutX="36.0" layoutY="67.0" text="Placa do veiculo">
          <font>

@@ -11,14 +11,22 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="principal.GerenciarVeiculoController">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="principal.GerenciarVeiculoController">
    <children>
       <Pane prefHeight="600.0" prefWidth="800.0">
          <children>
-            <Label layoutX="525.0" layoutY="330.0" text="Ano" />
-            <CheckBox fx:id="ckbDisponivel" layoutX="583.0" layoutY="384.0" mnemonicParsing="false" text="Disponibilidade" />
-            <Button fx:id="btnDesapropriar" layoutX="673.0" layoutY="511.0" mnemonicParsing="false" onAction="#desapropriar" text="Desapropriar" />
+            <Label layoutX="525.0" layoutY="330.0" text="Ano">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font></Label>
+            <CheckBox fx:id="ckbDisponivel" layoutX="583.0" layoutY="384.0" mnemonicParsing="false" text="Disponibilidade">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font></CheckBox>
+            <Button fx:id="btnDesapropriar" layoutX="673.0" layoutY="511.0" mnemonicParsing="false" onAction="#desapropriar" text="Desapropriar">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font></Button>
          </children>
       </Pane>
       <Label layoutX="516.0" layoutY="46.0" prefHeight="35.0" prefWidth="252.0" text="Gerenciar Veiculos">
@@ -26,9 +34,15 @@
             <Font name="Comic Sans MS" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="54.0" layoutY="69.0" text="Placa" />
-      <TextField fx:id="tfBuscar" layoutX="99.0" layoutY="64.0" />
-      <Button fx:id="btnBuscar" layoutX="266.0" layoutY="64.0" mnemonicParsing="false" onAction="#buscar" text="Buscar" />
+      <Label layoutX="54.0" layoutY="69.0" text="Placa">
+         <font>
+            <Font name="Comic Sans MS" size="13.0" />
+         </font></Label>
+      <TextField fx:id="tfBuscar" layoutX="99.0" layoutY="64.0" promptText="Busque o veiculo " />
+      <Button fx:id="btnBuscar" layoutX="266.0" layoutY="64.0" mnemonicParsing="false" onAction="#buscar" text="Buscar">
+         <font>
+            <Font name="Comic Sans MS" size="13.0" />
+         </font></Button>
       <TableView fx:id="tblVeiculos" layoutX="35.0" layoutY="110.0" onMouseClicked="#selecionaCarro" prefHeight="197.0" prefWidth="738.0">
          <columns>
             <TableColumn fx:id="tbcPlaca" prefWidth="118.0" text="Placa" />
@@ -38,12 +52,30 @@
             <TableColumn fx:id="tbcDisponibilidade" minWidth="0.0" prefWidth="168.0" text="Disponibilidade" />
          </columns>
       </TableView>
-      <Label layoutX="41.0" layoutY="330.0" text="Marca" />
-      <Label layoutX="40.0" layoutY="366.0" text="Modelo" />
-      <Label layoutX="40.0" layoutY="404.0" text="Cor" />
-      <Label layoutX="40.0" layoutY="438.0" text="Placa" />
-      <Label layoutX="40.0" layoutY="473.0" text="Valor" />
-      <Button fx:id="btnSalvar" layoutX="581.0" layoutY="511.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />
+      <Label layoutX="41.0" layoutY="330.0" text="Marca">
+         <font>
+            <Font name="Comic Sans MS" size="13.0" />
+         </font></Label>
+      <Label layoutX="40.0" layoutY="366.0" text="Modelo">
+         <font>
+            <Font name="Comic Sans MS" size="13.0" />
+         </font></Label>
+      <Label layoutX="40.0" layoutY="404.0" text="Cor">
+         <font>
+            <Font name="Comic Sans MS" size="13.0" />
+         </font></Label>
+      <Label layoutX="40.0" layoutY="438.0" text="Placa">
+         <font>
+            <Font name="Comic Sans MS" size="13.0" />
+         </font></Label>
+      <Label layoutX="40.0" layoutY="473.0" text="Valor">
+         <font>
+            <Font name="Comic Sans MS" size="13.0" />
+         </font></Label>
+      <Button fx:id="btnSalvar" layoutX="581.0" layoutY="511.0" mnemonicParsing="false" onAction="#salvar" text="Salvar">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font></Button>
       <TextField fx:id="tfMarca" layoutX="110.0" layoutY="324.0" prefHeight="27.0" prefWidth="201.0" />
       <TextField fx:id="tfModelo" layoutX="110.0" layoutY="361.0" prefHeight="27.0" prefWidth="201.0" />
       <TextField fx:id="tfCor" layoutX="110.0" layoutY="399.0" prefHeight="27.0" prefWidth="201.0" />

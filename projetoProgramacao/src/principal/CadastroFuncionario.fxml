@@ -17,25 +17,58 @@
                <font>
                   <Font name="Comic Sans MS" size="24.0" />
                </font></Label>
-            <Label layoutX="42.0" layoutY="132.0" text="Nome:" />
-            <Label layoutX="39.0" layoutY="173.0" text="Data de Nascimento:" />
+            <Label layoutX="42.0" layoutY="132.0" text="Nome:">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font></Label>
+            <Label layoutX="39.0" layoutY="173.0" text="Data de Nascimento:">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font></Label>
             <TextField fx:id="tfNome" layoutX="113.0" layoutY="128.0" />
-            <Label layoutX="430.0" layoutY="136.0" text="Sobrenome:" />
+            <Label layoutX="430.0" layoutY="136.0" text="Sobrenome:">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font></Label>
             <TextField fx:id="tfSobrenome" layoutX="534.0" layoutY="131.0" />
             <DatePicker fx:id="dtNascimento" layoutX="175.0" layoutY="169.0" />
-            <Label layoutX="438.0" layoutY="173.0" text="Telefone:" />
+            <Label layoutX="438.0" layoutY="173.0" text="Telefone:">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font></Label>
             <TextField fx:id="tfTelefone" layoutX="534.0" layoutY="169.0" />
-            <Label layoutX="42.0" layoutY="216.0" text="CPF:" />
+            <Label layoutX="42.0" layoutY="216.0" text="CPF:">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font></Label>
             <TextField fx:id="tfCpf" layoutX="86.0" layoutY="212.0" prefHeight="27.0" prefWidth="194.0" />
-            <Label layoutX="451.0" layoutY="219.0" text="E-mail:" />
+            <Label layoutX="451.0" layoutY="219.0" text="E-mail:">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font></Label>
             <TextField fx:id="tfEmail" layoutX="534.0" layoutY="207.0" prefHeight="25.0" prefWidth="206.0" />
-            <Label layoutX="40.0" layoutY="264.0" text="Salário:" />
+            <Label layoutX="40.0" layoutY="264.0" text="Salário:">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font></Label>
             <TextField fx:id="tfSalario" layoutX="103.0" layoutY="261.0" prefHeight="25.0" prefWidth="110.0" />
-            <Label layoutX="39.0" layoutY="311.0" text="Filial:" />
+            <Label layoutX="39.0" layoutY="311.0" text="Filial:">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font></Label>
             <ComboBox fx:id="cbFilial" layoutX="95.0" layoutY="307.0" prefWidth="150.0" />
-            <Button fx:id="btnNovo" layoutX="518.0" layoutY="416.0" mnemonicParsing="false" onAction="#novo" text="Novo" />
-            <Button fx:id="btnCadastro" layoutX="622.0" layoutY="416.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar" />
-            <Label layoutX="453.0" layoutY="254.0" text="Senha" />
+            <Button fx:id="btnNovo" layoutX="518.0" layoutY="416.0" mnemonicParsing="false" onAction="#novo" text="Novo">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font></Button>
+            <Button fx:id="btnCadastro" layoutX="622.0" layoutY="416.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font></Button>
+            <Label layoutX="453.0" layoutY="254.0" text="Senha">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font></Label>
             <TextField fx:id="tfSenha" layoutX="535.0" layoutY="251.0" prefHeight="25.0" prefWidth="110.0" />
          </children>
       </Pane>
