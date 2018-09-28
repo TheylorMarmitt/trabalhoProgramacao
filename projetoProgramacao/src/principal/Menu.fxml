@@ -24,9 +24,9 @@
                   <MenuItem mnemonicParsing="false" onAction="#abreTelaGerenciarFuncionario" text="Gerenciar Funcionario" />
                   <MenuItem mnemonicParsing="false" onAction="#abreTelaGerenciarVeiculo" text="Gerenciar Veiculo" />
                </items></Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" text="Atualizar">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#abreTelaAtualizaCliente" text="Cliente" />
             </items>
           </Menu>
         </menus>

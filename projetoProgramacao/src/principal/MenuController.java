@@ -117,5 +117,17 @@ public class MenuController {
 
 	}
 	
+    @FXML
+    void abreTelaAtualizaCliente(ActionEvent event) {
+    	FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("AtualizarCliente.fxml"));
+		try {
+			AnchorPane View = (AnchorPane) loader.load();
+			bpPrincipal.setCenter(View);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+    }
+	
 	
 }
