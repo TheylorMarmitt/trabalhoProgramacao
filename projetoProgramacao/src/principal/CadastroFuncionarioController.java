@@ -9,10 +9,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import principal.dao.AbstractFactory;
-import principal.dao.ControleFuncionariosDAO;
 import principal.dao.FilialDAO;
 import principal.dao.FuncionarioDAO;
-import principal.model.ControleFuncionarios;
 import principal.model.Filial;
 import principal.model.Funcionario;
 
@@ -53,11 +51,11 @@ public class CadastroFuncionarioController {
 
 	    private Funcionario funcionario;
 	    
-	    private ControleFuncionarios controle;
+//	    private ControleFuncionarios controle;
 	    
 	    private FuncionarioDAO funcionarioDao = AbstractFactory.get().funcionarioDao();
 	    private FilialDAO filialDao = AbstractFactory.get().filialDao();
-	    private ControleFuncionariosDAO controleDao = AbstractFactory.get().controleFuncionariosDao();
+//	    private ControleFuncionariosDAO controleDao = AbstractFactory.get().controleFuncionariosDao();
 	    
 	    @FXML
 		private void initialize() {
@@ -84,21 +82,21 @@ public class CadastroFuncionarioController {
 	    	funcionario.setDataAdmissao(LocalDate.now());
 	    }
 	    
-	    void populaControle() {
-	    	controle.setDataDeDemissao(null);
-	    	controle.setDataDeAdmissao(LocalDate.now());
-	    	controle.setFilial(cbFilial.getValue());
-	    	controle.setFuncionario(funcionario);
-	    }
+//	    void populaControle() {
+//	    	controle.setDataDeDemissao(null);
+//	    	controle.setDataDeAdmissao(LocalDate.now());
+//	    	controle.setFilial(cbFilial.getValue());
+//	    	controle.setFuncionario(funcionario);
+//	    }
 	    
 	    @FXML
 	    void cadastrar(ActionEvent event) {
 	    	populaFuncionario();
-	    	populaControle();
+//	    	populaControle();
 	    	AlertaFactory alerta = new AlertaFactory();
 	    	if(alerta.confirmaAceitar()) {
 	    		funcionarioDao.inserir(funcionario);
-	    		controleDao.inserir(controle);
+//	    		controleDao.inserir(controle);
 	    	}
 	    }
 

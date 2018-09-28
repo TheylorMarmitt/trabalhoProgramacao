@@ -71,8 +71,10 @@ public class GerenciarFuncionarioController {
 	private TextField tfSalario;
 
 	private Funcionario funcionario;
+//	private ControleFuncionarios controle;
 
 	private FuncionarioDAO funcionarioDao = AbstractFactory.get().funcionarioDao();
+//	private ControleFuncionariosDAO controleDao = AbstractFactory.get().controleFuncionariosDao();
 
 	private ObservableList<Funcionario> funcionarios = FXCollections.observableArrayList();
 
@@ -114,6 +116,10 @@ public class GerenciarFuncionarioController {
 		funcionario.setSalario(Double.valueOf(tfSalario.getText()));
 		funcionario.setDataNascimento(dtpDataNasc.getValue());
 	}
+	
+//	void populaControle() {
+//		
+//	}
 
 	
 	@FXML

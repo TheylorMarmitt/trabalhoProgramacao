@@ -46,6 +46,11 @@ public class JDBCFactory implements DaoFactory{
 	public ControleFuncionariosDAO controleFuncionariosDao() {
 		return new ControleFuncionariosJDBC();
 	}
+
+	@Override
+	public AquisicaoVeiculosDAO aquisicaoDao() {
+		return new AquisicaoVeiculosJDBC();
+	}
 	
 	
 

@@ -47,6 +47,7 @@ public class CadastroVeiculoController {
 	    
 	    private Carro carro;
 	    private CarroDAO carroDao = AbstractFactory.get().carroDao();
+//	    private AquisicaoVeiculosDAO aquisicaoDao = AbstractFactory.get().aquisicaoDao();
 	    
 	    @FXML
 	    void cadastrar(ActionEvent event) {
