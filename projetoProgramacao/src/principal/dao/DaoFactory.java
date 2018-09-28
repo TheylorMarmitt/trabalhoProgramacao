@@ -17,4 +17,6 @@ public interface DaoFactory {
 	TipoAluguelDAO tipoAluguelDao();
 	
 	TipoPagamentoDAO tipoPagamentoDao();
+	
+	ControleFuncionariosDAO controleFuncionariosDao();
 }

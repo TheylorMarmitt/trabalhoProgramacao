@@ -42,4 +42,11 @@ public class JDBCFactory implements DaoFactory{
 		return new TipoPagamentoJDBC();
 	}
 
+	@Override
+	public ControleFuncionariosDAO controleFuncionariosDao() {
+		return new ControleFuncionariosJDBC();
+	}
+	
+	
+
 }
